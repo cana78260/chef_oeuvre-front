@@ -1,10 +1,12 @@
 import React from 'react';
+import Card from '../components/Card';
 
 const Services = () => {
     return (
-        <div>
-            
-        </div>
+      <div>
+        <Card /> <Card />
+       
+      </div>
     );
 };
 
