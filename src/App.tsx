@@ -11,11 +11,15 @@ import AdminUser from "./pages/AdminUser";
 import Page404 from "./pages/Page404";
 import Messagerie from "./pages/Messagerie";
 import Services from "./pages/Services";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <div>
+          <Navbar />
+        </div>
         <Routes>
           <Route path="/" element={<Welcome />} />
 

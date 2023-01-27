@@ -1,12 +1,12 @@
-p {
-    color: #22223b;
-}
-h5 {
-    
-    color: #22223b;
+p.card-text {
+    color:blue;
 }
 
-h5.card-title{
-    background-color: #22223b;
-    font-size: 10em;
+.card.mb-3 {
+
+    border-color: blue;
+}
+
+li {
+    list-style-type: none;
 }
