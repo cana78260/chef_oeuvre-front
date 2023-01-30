@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -12,6 +12,7 @@ import Page404 from "./pages/Page404";
 import Messagerie from "./pages/Messagerie";
 import Services from "./pages/Services";
 import Navbar from "./components/Navbar";
+import KnowMore from "./pages/KnowMore";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/*" element={<Page404 />} />
           <Route path="/messagerie" element={<Messagerie />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:id" element={<KnowMore />} />
         </Routes>
       </BrowserRouter>
     </div>

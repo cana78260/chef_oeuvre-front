@@ -55,6 +55,8 @@ export interface Services {
   echeance: string;
   note: number;
   libelle: string;
+  createur: User;
+  client: User;
   categorie: Category;
 }
 
@@ -188,7 +190,7 @@ console.log("**************listCategories", listCategories);
                   </li> */}
                  <li><Card service={dataService}  /></li>
                   <li>
-                   <Bouton/>
+                   {/* <Bouton onClick={}/> */}
                   </li>
                 </>
               ))}

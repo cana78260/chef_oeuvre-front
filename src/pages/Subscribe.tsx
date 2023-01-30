@@ -3,10 +3,16 @@ import Bouton from '../components/Bouton';
 import "./Subscribe.css";
 
 const Subscribe = () => {
+
+const SubscribeBoutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
+  console.log("page subscribe");
+};
+
+
     return (
         <div>
             Inscription
-            <Bouton />
+            <Bouton handleClick={SubscribeBoutonEvent}/>
         </div>
     );
 };

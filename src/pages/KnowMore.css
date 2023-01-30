@@ -1,0 +1,12 @@
+.détails {
+    height: 400px;
+    width: 100%;
+    background-color: #22223b;
+   margin: auto;
+   color: bisque;
+   text-align: center;
+}
+
+p {
+    font-family:cursive;
+}
