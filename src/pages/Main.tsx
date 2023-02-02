@@ -9,6 +9,16 @@ import Card from "../components/Card";
 import Bouton from "../components/Bouton";
 
 
+//  interface pour l'objet du token payload decodé
+export interface PayloadToken {
+  exp: number;
+  iat: number;
+  id: string;
+  role: string;
+  username: string;
+}
+
+
 export interface Role {
   id: string;
   label: string;
