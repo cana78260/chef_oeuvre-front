@@ -5,34 +5,29 @@ import "./Card.css";
 import { Services } from "../pages/Main";
 import { Link, useNavigate } from "react-router-dom";
 
-
-
-
-
 export interface ServiceProp {
   service: Services;
 
   // categorie: Category;
 }
 
-export const Card = (service: ServiceProp ) => {
+export const Card = ({ service }: ServiceProp) => {
   // const [SelectedCard, setSelectedCard] = useState<Services>();
+  console.log("SEEEEERVICE", service);
 
   const navigate = useNavigate();
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
-      navigate(`/services/${service.service.id}`);
+    navigate(`/services/${service.id}`);
 
-    const test = service.service;
+    const test = service;
     console.log("????????????test", test);
 
     // setSelectedCard(test);
     //
-     
-     //
-  };
 
- 
+    //
+  };
 
   // useEffect(() => {
   //   if (SelectedCard) {
@@ -51,7 +46,7 @@ export const Card = (service: ServiceProp ) => {
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              src={`http://localhost:8080/${service.service.categorie.image}`}
+              src={`http://localhost:8080/${service.categorie.image}`}
               className="img-fluid rounded-start"
               alt="..."
             />
@@ -59,16 +54,14 @@ export const Card = (service: ServiceProp ) => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">
-                Catégorie: {service.service.categorie.intitule}
+                Catégorie: {service.categorie.intitule}
               </h5>
 
               <ul>
-                <li className="card-text">Titre: {service.service.titre}</li>
+                <li className="card-text">Titre: {service.titre}</li>
+                <li className="card-text">Pseudo: {service.createur.pseudo}</li>
                 <li className="card-text">
-                  Pseudo: {service.service.createur.pseudo}
-                </li>
-                <li className="card-text">
-                  Département: {service.service.createur.departement}
+                  Département: {service.createur.departement}
                 </li>
               </ul>
               {/* <p className="card-text">
@@ -79,7 +72,6 @@ export const Card = (service: ServiceProp ) => {
               <div>
                 {" "}
                 <Bouton handleClick={boutonEvent} />
-                
               </div>
             </div>
           </div>

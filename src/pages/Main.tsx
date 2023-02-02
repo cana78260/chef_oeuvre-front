@@ -84,7 +84,7 @@ const Main = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/services  ")
+      .get("http://localhost:8080/api/services")
       .then((res) => {
         listServices = res.data;
         setlistServiceDisplayed(listServices);
