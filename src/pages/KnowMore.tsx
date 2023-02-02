@@ -2,14 +2,24 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./KnowMore.css";
 import { Services } from "./Main";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Bouton from "../components/Bouton";
 import ValidBouton from "../components/ValidBouton";
+import { userInfo } from "os";
+
+export interface PayloadToken {
+  exp: number;
+  iat: number;
+  id: string;
+  role: string;
+  username: string;
+}
 
 let serviceDisplayed;
 
 const KnowMore = () => {
   const [displayCard, setDisplayCard] = useState<Services>();
+  const navigate = useNavigate();
 
   const location = useLocation();
   const params = useParams();
@@ -28,18 +38,36 @@ const KnowMore = () => {
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
        console.log("bouton cliqué");
+
+//        let test:PayloadToken;
+//        let testId:string = test.id
+//        if(testId){
+// console.log("test", testId);
+//        }
+
+
+
+
     axios
       .patch(`http://localhost:8080/api/services/valid/${params.id}`, {
+
+        
+      },
        
-          client: "687152e8-1d45-42ad-ab33-c56e7e6e71fa",
-        
-        
-      })
+         {headers: {
+          Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+         },}
+      )
       .then((res) => {
         console.log("---------res", res);
       })
       .catch((error) => {
         console.log(error);
+        if(error.response.data.statusCode === 401) {
+          //401 signifie que l'accès à la ressource necessite une authentification
+          localStorage.removeItem("accesstoken");
+          navigate("/connexion");
+        }
       });
   };
 
