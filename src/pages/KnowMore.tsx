@@ -1,16 +1,19 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./KnowMore.css";
 import { Services } from "./Main";
 import { useLocation, useParams } from "react-router-dom";
 import Bouton from "../components/Bouton";
 import ValidBouton from "../components/ValidBouton";
+import { userInfo } from "os";
+import { UserContext } from "../Context.ts/User-context";
 
 let serviceDisplayed;
 
 const KnowMore = () => {
   const [displayCard, setDisplayCard] = useState<Services>();
-
+  const { userCo } = useContext(UserContext);
+  console.log("userCo?.id!!!!!!", userCo?.id);
   const location = useLocation();
   const params = useParams();
   console.log("________params", params);
@@ -26,15 +29,25 @@ const KnowMore = () => {
       .catch((error) => console.log(error));
   }, []);
 
+
+
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
-       console.log("bouton cliqué");
+    console.log("bouton cliqué");
+
     axios
-      .patch(`http://localhost:8080/api/services/valid/${params.id}`, {
-       
-          client: "687152e8-1d45-42ad-ab33-c56e7e6e71fa",
-        
-        
-      })
+      .patch(
+        `http://localhost:8080/api/services/valid/${params.id}`,
+        {
+          client: {
+            id: userCo?.id,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        }
+      )
       .then((res) => {
         console.log("---------res", res);
       })

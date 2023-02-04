@@ -11,7 +11,7 @@ const ValidBouton = ({ handleClick }: ValidBoutonProps) => {
 
 
 const click = (event: React.MouseEvent<HTMLButtonElement>) =>
-  handleClick(event);
+{  handleClick(event);}
 
 
   return (
