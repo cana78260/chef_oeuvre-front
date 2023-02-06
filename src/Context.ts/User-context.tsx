@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { createContext,ReactElement, useEffect, useState } from "react";
-import { PayloadToken, User } from "../pages/Main";
+import { PayloadToken, User } from "../pages/Services";
 
 
 // Mise en place d'un context afin de recuperer les données de l'utilisateur connecté sur l'ensemble des composants et page de l'APP

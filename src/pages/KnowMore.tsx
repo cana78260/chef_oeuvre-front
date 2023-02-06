@@ -1,11 +1,9 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import "./KnowMore.css";
-import { Services } from "./Main";
+import { Services } from "./Services";
 import { useLocation, useParams } from "react-router-dom";
-import Bouton from "../components/Bouton";
 import ValidBouton from "../components/ValidBouton";
-import { userInfo } from "os";
 import { UserContext } from "../Context.ts/User-context";
 
 let serviceDisplayed;
@@ -37,11 +35,7 @@ const KnowMore = () => {
     axios
       .patch(
         `http://localhost:8080/api/services/valid/${params.id}`,
-        {
-          client: {
-            id: userCo?.id,
-          },
-        },
+      
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,

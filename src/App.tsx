@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Welcome from "./pages/Welcome";
@@ -13,6 +11,7 @@ import Messagerie from "./pages/Messagerie";
 import Services from "./pages/Services";
 import Navbar from "./components/Navbar";
 import KnowMore from "./pages/KnowMore";
+import CreateService from "./pages/CreateService";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Welcome />} />
-
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/aboutus" element={<AboutsUs />} />
@@ -34,6 +32,7 @@ function App() {
           <Route path="/messagerie" element={<Messagerie />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:id" element={<KnowMore />} />
+          <Route path="/CreateService" element={<CreateService />} />
         </Routes>
       </BrowserRouter>
     </div>

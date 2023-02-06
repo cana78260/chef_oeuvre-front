@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { FormEvent, useEffect, useState } from "react";
 import Bouton from "./Bouton";
 import "./Card.css";
-import { Services } from "../pages/Main";
+import { Services } from "../pages/Services";
 import { Link, useNavigate } from "react-router-dom";
 
 export interface ServiceProp {

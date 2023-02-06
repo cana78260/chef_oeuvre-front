@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Bouton from "../components/Bouton";
 import ValidBouton from "../components/ValidBouton";
 import "./Subscribe.css";
 
@@ -79,7 +78,7 @@ const Subscribe = () => {
     }
   };
   useEffect(() => {
-    console.log("lastName", nameElement);
+    console.log("lastName!", nameElement);
     console.log("firstName", prenomElement);
     console.log("mail", mailElement);
     console.log("age dans useEffect", ageElement);
@@ -403,7 +402,7 @@ const Subscribe = () => {
           </div>
         </section>
       </div>
-      Inscription
+      {/* Inscription */}
       {/* <Bouton handleClick={SubscribeBoutonEvent} /> */}
     </div>
   );
