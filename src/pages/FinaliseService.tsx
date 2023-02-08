@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useRef } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import FinaliseBouton from "../components/FinaliseBouton";
+import SubmitBouton from "../components/SubmitBouton";
 import "./FinaliseService.css";
 
 const FinaliseService = () => {
@@ -17,9 +18,9 @@ const FinaliseService = () => {
 
     axios
       .patch(
-        `http://localhost:8080/api/services/valid/${params.id}`,
+        `http://localhost:8080/api/services/finalise/${params.id}`,
         {
-          compte_temps: FinaliseServ.current?.value,
+          compte_temps: Number(FinaliseServ.current?.value)
         },
 
         {
@@ -50,7 +51,7 @@ const FinaliseService = () => {
               ref={FinaliseServ}
             />
           </div>
-          <FinaliseBouton handleClick={boutonEvent} />
+          <SubmitBouton handleClick={boutonEvent} />
           {/* <button type="submit" className="btn inscription">
               {" "}
               Se connecter

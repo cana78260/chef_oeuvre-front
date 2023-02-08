@@ -1,0 +1,12 @@
+p.card-text {
+    color:blue;
+}
+
+.card.mb-3 {
+
+    border-color: blue;
+}
+
+li {
+    list-style-type: none;
+}

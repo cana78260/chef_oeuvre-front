@@ -1,4 +1,4 @@
-.css-button-retro--rose {
+.css-button-retro--red {
   min-width: 130px;
   height: 40px;
   color: #fff;
@@ -12,13 +12,12 @@
   border: 1px solid #000;
   color: #000;
   background: transparent;
-  z-index: 1  ;
 }
-.css-button-retro--rose:hover:after {
+.css-button-retro--red:hover:after {
   top: 0;
   left: 0;
 }
-.css-button-retro--rose:after {
+.css-button-retro--red:after {
   content: "";
   width: 100%;
   z-index: -1;
@@ -27,5 +26,5 @@
   top: 5px;
   left: 5px;
   transition: 0.2s;
-  background-color: #ff6392;
+  background-color: #ef233c;
 }

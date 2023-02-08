@@ -34,7 +34,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:id" element={<KnowMore />} />
           <Route path="/CreateService" element={<CreateService />} />
-          <Route path="/FinaliseService" element={<FinaliseService />}/>
+          <Route path="/FinaliseService/:id" element={<FinaliseService />}/>
         </Routes>
       </BrowserRouter>
     </div>

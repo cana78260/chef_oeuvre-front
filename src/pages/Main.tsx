@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Bouton from "../components/Bouton";
 import Card from "../components/Card";
+import CardVierge from "../components/CardVierge";
 import "./Main.css";
 import { Category, User } from "./Services";
 
@@ -50,7 +51,7 @@ const navigate = useNavigate();
 
 const boutonEvent = (e:React.MouseEvent<HTMLButtonElement>) => {
 
-  navigate('/CreateService')
+  navigate('/CreateService');
 }
 
   return (
@@ -63,9 +64,10 @@ const boutonEvent = (e:React.MouseEvent<HTMLButtonElement>) => {
       <div className="getServices">
         <h3>Vos services créés</h3>
         <ul>
-          {cardDisplay.map((card) => (
+          {cardDisplay.map((dataService) => (
             <li>
-              <Card service={card} />
+              {/* <Card service={card} /> */}
+              <CardVierge service={dataService}/>
             </li>
           ))}
         </ul>

@@ -1,11 +1,11 @@
 import React from 'react';
-import "./FinaliseBouton.css";
+import "./SubmitBouton.css";
 
-interface FinaliseBoutonProps {
+interface BoutonProps {
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const FinaliseBouton = ({ handleClick }: FinaliseBoutonProps) => {
+const SubmitBouton = ({ handleClick }: BoutonProps) => {
   const click = (event: React.MouseEvent<HTMLButtonElement>) =>
     handleClick(event);
 
@@ -13,13 +13,13 @@ const FinaliseBouton = ({ handleClick }: FinaliseBoutonProps) => {
     <div>
       <button
         type="button"
-        className="css-button-retro--rose"
+        className="css-button-retro--red"
         onClick={click}
       >
-        Je finalise
+        Soumettre
       </button>
     </div>
   );
 };
 
-export default FinaliseBouton;
+export default SubmitBouton;
