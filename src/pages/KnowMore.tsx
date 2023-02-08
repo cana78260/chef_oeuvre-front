@@ -19,15 +19,20 @@ const KnowMore = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/services/detail/${params.id}`)
+      .get(`http://localhost:8080/api/services/detail/${params.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        },
+      })
       .then((res) => {
         serviceDisplayed = res.data;
+        console.log("serviceDisplayed", serviceDisplayed);
         setDisplayCard(serviceDisplayed);
       })
       .catch((error) => console.log(error));
   }, []);
 
-
+console.log("DisplayCard", displayCard)
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
     console.log("bouton cliqué");

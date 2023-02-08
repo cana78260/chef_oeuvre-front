@@ -17,7 +17,7 @@ const click = (event: React.MouseEvent<HTMLButtonElement>) =>
   return (
     <div>
       {" "}
-      <button type="button" className="css-button-retro--yellow" onClick={click}>
+      <button type="button" className="css-button-retro--green" onClick={click}>
         Valider
       </button>
     </div>

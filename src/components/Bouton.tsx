@@ -22,7 +22,7 @@ handleClick(event);
       <div>
         <button
           type="button"
-          className="css-button-retro--green"
+          className="css-button-retro--yellow"
           onClick={click}
   
         >

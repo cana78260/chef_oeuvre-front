@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Navbar from "./components/Navbar";
 import KnowMore from "./pages/KnowMore";
 import CreateService from "./pages/CreateService";
+import FinaliseService from "./pages/FinaliseService";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:id" element={<KnowMore />} />
           <Route path="/CreateService" element={<CreateService />} />
+          <Route path="/FinaliseService" element={<FinaliseService />}/>
         </Routes>
       </BrowserRouter>
     </div>
