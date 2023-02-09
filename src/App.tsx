@@ -30,7 +30,7 @@ function App() {
           <Route path="/connexion" element={<Connexion />} />
           <Route path="/adminUser" element={<AdminUser />} />
           <Route path="/*" element={<Page404 />} />
-          <Route path="/messagerie" element={<Messagerie />} />
+          {/* <Route path="/messagerie" element={<Messagerie />} /> */}
           <Route path="/services" element={<Services />} />
           <Route path="/services/:id" element={<KnowMore />} />
           <Route path="/CreateService" element={<CreateService />} />

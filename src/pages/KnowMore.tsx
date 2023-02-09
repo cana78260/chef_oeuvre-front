@@ -1,23 +1,30 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import "./KnowMore.css";
-import { Services } from "./Services";
-import { useLocation, useParams } from "react-router-dom";
+import { Services, User } from "./Services";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import ValidBouton from "../components/ValidBouton";
 import { UserContext } from "../Context.ts/User-context";
+// import { useHistory } from "react-router-dom";
 
 let serviceDisplayed;
 
 const KnowMore = () => {
+    const [message, setMessage] = useState<string>();
   const [displayCard, setDisplayCard] = useState<Services>();
+  // const history = useHistory();
+  // const [user,setUser] = useState<User>();
   const { userCo } = useContext(UserContext);
   console.log("userCo?.id!!!!!!", userCo?.id);
   const location = useLocation();
   const params = useParams();
   console.log("________params", params);
   console.log("________location", location);
-
+  const navigate = useNavigate()
   useEffect(() => {
+    //  if (userCo) 
+    //    setUser(userCo);
+    //  }
     axios
       .get(`http://localhost:8080/api/services/detail/${params.id}`, {
         headers: {
@@ -28,6 +35,7 @@ const KnowMore = () => {
         serviceDisplayed = res.data;
         console.log("serviceDisplayed", serviceDisplayed);
         setDisplayCard(serviceDisplayed);
+        // setUser(userCo)
       })
       .catch((error) => console.log(error));
   }, []);
@@ -35,11 +43,22 @@ const KnowMore = () => {
 console.log("DisplayCard", displayCard)
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("bouton cliqué");
-
+      console.log("bouton cliqué");
+      // if (userCo) {
+    //    setUser(userCo);
+    //  }
+  // console.log("user", user)
+    console.log("111111111userCo?.id", userCo?.id);
+    console.log("22222222222displayCard?.createur.id", displayCard?.createur.id);
+    if(userCo?.id && displayCard){
+if(userCo.id===displayCard.createur.id){
+setMessage("Désolé, ce service vous appartient")
+}else{
     axios
       .patch(
-        `http://localhost:8080/api/services/valid/${params.id}`,
+        `http://localhost:8080/api/services/valid/${params.id}`,{
+              client:userCo.id
+        },
       
         {
           headers: {
@@ -49,11 +68,12 @@ console.log("DisplayCard", displayCard)
       )
       .then((res) => {
         console.log("---------res", res);
+        navigate("/services")
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  }}};
 
   return (
     <div>
@@ -68,6 +88,7 @@ console.log("DisplayCard", displayCard)
         <p>date d'échéance: {displayCard?.echeance}</p>
         <p>Détails de la demande: {displayCard?.libelle}</p>
         <ValidBouton handleClick={boutonEvent} />
+        <span className="message">{message}</span>
       </div>
     </div>
   );

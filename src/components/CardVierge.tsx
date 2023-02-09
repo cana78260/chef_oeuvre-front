@@ -31,7 +31,7 @@ const CardVierge = ( {service}: ServiceProp) => {
     };
   return (
     <div>
-      <div className="card mb-3" style={{ maxWidth: 540 }}>
+      <div className="card mb-3" style={({ maxWidth: 540 })}>
         <div className="row g-0">
           <div className="col-md-4">
             <img
@@ -58,10 +58,12 @@ const CardVierge = ( {service}: ServiceProp) => {
                     Pseudo: {service.service.createur.pseudo}
                   </small>
                 </p> */}
+                {(service.client!==null?(
               <div>
                 {" "}
                 <FinaliseBouton handleClick={boutonEvent} />
               </div>
+              ):<div></div>)}
             </div>
           </div>
         </div>
