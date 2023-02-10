@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { FormEvent, useContext, useEffect, useState } from "react";
 import Bouton from "./Bouton";
-import "./Card.css";
+import "./CardDetail.css";
 import { PayloadToken, Services } from "../pages/Services";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context.ts/Auth-context";
@@ -13,8 +13,8 @@ export interface ServiceProp {
   // categorie: Category;
 }
 
-export const Card = ({ service }: ServiceProp) => {
-  // const [SelectedCard, setSelectedCard] = useState<Services>();
+export const CardDetail = ({ service }: ServiceProp) => {
+
   console.log("SEEEEERVICE", service);
 
   const navigate = useNavigate();
@@ -108,4 +108,4 @@ const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
 };
 //
 
-export default Card;
+export default CardDetail;

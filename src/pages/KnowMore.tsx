@@ -2,27 +2,24 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import "./KnowMore.css";
 import { PayloadToken, Services, User } from "./Services";
-import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import ValidBouton from "../components/ValidBouton";
-import { UserContext } from "../Context.ts/User-context";
 import {AuthContext} from "../Context.ts/Auth-context";
 import jwt_decode from "jwt-decode";
-// import { useHistory } from "react-router-dom";
+
 
 let serviceDisplayed;
 
 const KnowMore = () => {
     const [message, setMessage] = useState<string>();
   const [displayCard, setDisplayCard] = useState<Services>();
-  // const history = useHistory();
+
 const [tokenId, setTokenId] = useState<string>();
   const { savedToken, onAuthChange} = useContext(AuthContext)
-  const {userCo} = useContext(UserContext)
-  // console.log("userCo?.id!!!!!!", userCo?.id);
-  const location = useLocation();
+
   const params = useParams();
   console.log("________params", params);
-  console.log("________location", location);
+
   const navigate = useNavigate()
   console.log("SavedToken avant use effect", savedToken);
   useEffect(() => {
@@ -45,7 +42,7 @@ const [tokenId, setTokenId] = useState<string>();
         serviceDisplayed = res.data;
         console.log("serviceDisplayed", serviceDisplayed);
         setDisplayCard(serviceDisplayed);
-        // setUser(userCo)
+
       })
       .catch((error) => console.log(error));
   }, []);
@@ -54,14 +51,6 @@ console.log("DisplayCard", displayCard)
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
       console.log("bouton cliqué");
-      // if (userCo) {
-    //    setUser(userCo);
-    //  }
-  // console.log("user", user)
-    // console.log("111111111userCo?.id", userCo?.id);
-    console.log("22222222222displayCard?.createur.id", displayCard?.createur.id);
-//         if(userCo?.id && displayCard){
-// if(userCo.id===displayCard.createur.id){
     if(tokenId && displayCard){
 if(tokenId===displayCard.createur.id){
 setMessage("Désolé, ce service vous appartient")

@@ -2,7 +2,7 @@ import axios from "axios";
 import "./Services.css";
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
-import Card from "../components/Card";
+import Card, { CardDetail } from "../components/CardDetail";
 
 
 
@@ -187,7 +187,7 @@ const Services = () => {
                     {service.categorie.image}
                   </li> */}
                   <li>
-                    <Card service={dataService} />
+                    <CardDetail service={dataService} />
                   </li>
                   <li>{/* <Bouton onClick={}/> */}</li>
                 </>

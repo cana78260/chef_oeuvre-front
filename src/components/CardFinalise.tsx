@@ -1,6 +1,6 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import Bouton from "./Bouton";
-import "./CardVierge.css";
+import "./CardFinalise.css";
 import { Services } from "../pages/Services";
 import { Link, useNavigate } from "react-router-dom";
 import FinaliseBouton from "./FinaliseBouton";
@@ -15,7 +15,7 @@ export interface ServiceProp {
 
 
 
-const CardVierge = ( {service}: ServiceProp) => {
+const CardFinalise = ( {service}: ServiceProp) => {
     const navigate = useNavigate();
 
     const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -72,4 +72,4 @@ const CardVierge = ( {service}: ServiceProp) => {
   );
 };
 
-export default CardVierge;
+export default CardFinalise;
