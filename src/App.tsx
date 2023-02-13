@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 import Subscribe from "./pages/Subscribe";
 import AboutsUs from "./pages/AboutsUs";
@@ -13,8 +13,17 @@ import Navbar from "./components/Navbar";
 import KnowMore from "./pages/KnowMore";
 import CreateService from "./pages/CreateService";
 import FinaliseService from "./pages/FinaliseService";
+import { AuthContext } from "./Context.ts/Auth-context";
+import { useContext } from "react";
+import { UserContext } from "./Context.ts/User-context";
+import ModifyService from "./pages/ModifyService";
+import DeleteService from "./pages/DeleteService";
 
 function App() {
+  const { savedToken } = useContext(AuthContext);
+  const { validTimeToken } = useContext(AuthContext);
+  const { userCo } = useContext(UserContext);
+  const { tokenFunction } = useContext(AuthContext);
   return (
     <div>
       <BrowserRouter>
@@ -26,15 +35,68 @@ function App() {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/aboutus" element={<AboutsUs />} />
-          <Route path="/main" element={<Main />} />
+          <Route
+            path="/main"
+            element={
+              savedToken !== null ? <Main /> : <Navigate to="/connexion" />
+            }
+          />
           <Route path="/connexion" element={<Connexion />} />
-          <Route path="/adminUser" element={<AdminUser />} />
+          <Route
+            path="/modifyService/:id"
+            element={
+              savedToken !== null ? (
+                <ModifyService />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="/deleteService/:id"
+            element={
+              savedToken !== null ? (
+                <DeleteService />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="/adminUser"
+            element={
+              savedToken !== null ? <AdminUser /> : <Navigate to="/connexion" />
+            }
+          />
           <Route path="/*" element={<Page404 />} />
           {/* <Route path="/messagerie" element={<Messagerie />} /> */}
           <Route path="/services" element={<Services />} />
-          <Route path="/services/:id" element={<KnowMore />} />
-          <Route path="/CreateService" element={<CreateService />} />
-          <Route path="/FinaliseService/:id" element={<FinaliseService />}/>
+          <Route
+            path="/services/:id"
+            element={
+              savedToken !== null ? <KnowMore /> : <Navigate to="/connexion" />
+            }
+          />
+          <Route
+            path="/createService"
+            element={
+              savedToken !== null ? (
+                <CreateService />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="/finaliseService/:id"
+            element={
+              savedToken !== null ? (
+                <FinaliseService />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

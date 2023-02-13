@@ -2,8 +2,11 @@ import React, { FormEvent, useEffect, useState } from "react";
 import Bouton from "./Bouton";
 import "./CardFinalise.css";
 import { Services } from "../pages/Services";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import FinaliseBouton from "./FinaliseBouton";
+import { FaPencilAlt } from "react-icons/fa";
+import { GoTrashcan } from "react-icons/go";
+import axios from "axios";
 
 export interface ServiceProp {
   service: Services;
@@ -17,9 +20,20 @@ export interface ServiceProp {
 
 const CardFinalise = ( {service}: ServiceProp) => {
     const navigate = useNavigate();
+  
+
+    const modifEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+    navigate(`/modifyService/${service.id}`);
+    };
+
+    const supprimEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
+ navigate(`/deleteService/${service.id}`);
+    
+    };
 
     const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
-      navigate(`/FinaliseService/${service.id}`);
+      navigate(`/finaliseService/${service.id}`);
 
       const test = service;
       console.log("????????????test", test);
@@ -31,7 +45,7 @@ const CardFinalise = ( {service}: ServiceProp) => {
     };
   return (
     <div>
-      <div className="card mb-3" style={({ maxWidth: 540 })}>
+      <div className="card mb-3" style={{ maxWidth: 540 }}>
         <div className="row g-0">
           <div className="col-md-4">
             <img
@@ -58,12 +72,31 @@ const CardFinalise = ( {service}: ServiceProp) => {
                     Pseudo: {service.service.createur.pseudo}
                   </small>
                 </p> */}
-                {(service.client!==null?(
-              <div>
-                {" "}
-                <FinaliseBouton handleClick={boutonEvent} />
-              </div>
-              ):<div></div>)}
+              {service.client !== null ? (
+                <div className="d-flex">
+                  {" "}
+                  <FinaliseBouton handleClick={boutonEvent} />
+                  <div className="space">
+                    <button className="iconeModify" onClick={modifEvent}>
+                      <FaPencilAlt className="mr-3" />
+                    </button>
+                  </div>
+                  <button className="iconeDelete" onClick={supprimEvent}>
+                    <GoTrashcan />
+                  </button>
+                </div>
+              ) : (
+                <div className="d-flex">
+                  <div className="space2">
+                    <button className="iconeModify" onClick={modifEvent}>
+                      <FaPencilAlt className="mr-3" />
+                    </button>
+                  </div>
+                  <button className="iconeDelete" onClick={supprimEvent}>
+                    <GoTrashcan />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

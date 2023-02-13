@@ -1,13 +1,15 @@
 import axios from "axios";
-import React, { useRef } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { FaPencilAlt } from "react-icons/fa";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FinaliseBouton from "../components/FinaliseBouton";
 import SubmitBouton from "../components/SubmitBouton";
 import "./FinaliseService.css";
 
 const FinaliseService = () => {
+ const [message, setMessage] = useState<string>();
   const FinaliseServ = useRef<HTMLInputElement>(null);
-
+const navigate = useNavigate();
   const location = useLocation();
   const params = useParams();
   console.log("________params", params);
@@ -30,11 +32,33 @@ const FinaliseService = () => {
         }
       )
       .then((res) => {
-        console.log("---------res", res);
+        axios
+          .delete(`http://localhost:8080/api/services/${params.id}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+            },
+          })
+          .then((res) => {
+
+             setTimeout(() => {
+               navigate("/main");
+             }, 2000);
+             setMessage(
+               "les deux comptes temps ont été mis à jour, merci pour tout! "
+             );
+
+            // alert("les deux comptes temps ont été mis à jour, merci pour tout! ")
+            console.log(`les service ${params.id} a bien été sucré3333333`);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         console.log(error);
       });
+
+      
   };
   return (
     <div>
@@ -52,6 +76,7 @@ const FinaliseService = () => {
             />
           </div>
           <SubmitBouton handleClick={boutonEvent} />
+          <span className="message">{message}</span>
           {/* <button type="submit" className="btn inscription">
               {" "}
               Se connecter

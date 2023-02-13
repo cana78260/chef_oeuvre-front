@@ -10,3 +10,39 @@ p.card-text {
 li {
     list-style-type: none;
 }
+
+/* .mr-3{
+    margin-right: 20px;
+   
+} */
+button.iconeDelete{
+height:45px;
+width:35px;
+}
+button.iconeModify{
+height:45px;
+width:35px;
+}
+
+.space{
+    margin-left: 40px;
+    margin-right: 20px;
+    width:50px;
+    height:50x;
+}
+.space2{
+    margin-left: 40px;
+    margin-right: 35px;
+ 
+}
+.iconeModify{
+    background-color: transparent;
+    color: gold;
+    border:2px solid gold;
+    
+}
+.iconeDelete{
+     background-color: transparent;
+     color:red;
+     border: 2px solid red;
+}
