@@ -73,17 +73,22 @@ const CardFinalise = ( {service}: ServiceProp) => {
                   </small>
                 </p> */}
               {service.client !== null ? (
-                <div className="d-flex">
-                  {" "}
-                  <FinaliseBouton handleClick={boutonEvent} />
-                  <div className="space">
-                    <button className="iconeModify" onClick={modifEvent}>
-                      <FaPencilAlt className="mr-3" />
+                <div>
+                  <div className="d-flex">
+                    {" "}
+                    <FinaliseBouton handleClick={boutonEvent} />
+                    <div className="space">
+                      <button className="iconeModify" onClick={modifEvent}>
+                        <FaPencilAlt className="mr-3" />
+                      </button>
+                    </div>
+                    <button className="iconeDelete" onClick={supprimEvent}>
+                      <GoTrashcan />
                     </button>
                   </div>
-                  <button className="iconeDelete" onClick={supprimEvent}>
-                    <GoTrashcan />
-                  </button>
+                   <a href={`mailto:${service.client.mail}`}>
+                Contacter le participant
+              </a>
                 </div>
               ) : (
                 <div className="d-flex">
