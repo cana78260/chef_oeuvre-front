@@ -1,4 +1,5 @@
 import axios from 'axios';
+import "./Connexion.css";
 import React, { FormEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context.ts/Auth-context';
@@ -10,7 +11,7 @@ const Connexion = () => {
   const [passwordState, setPasswordState] = useState<string>();
   const [message, setMessage] = useState<string>();
   const navigate = useNavigate();
-  let recupToken: string | null;
+  // let recupToken: string | null;
 
   const mailFunction = (e: React.SyntheticEvent<HTMLInputElement>) => {
     setMailState(e.currentTarget.value);

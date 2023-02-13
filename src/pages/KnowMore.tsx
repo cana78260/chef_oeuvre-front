@@ -1,65 +1,75 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./KnowMore.css";
-import { Services } from "./Main";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import Bouton from "../components/Bouton";
+import { PayloadToken, Services, User } from "./Services";
+import {  useNavigate, useParams } from "react-router-dom";
 import ValidBouton from "../components/ValidBouton";
-import { userInfo } from "os";
+import {AuthContext} from "../Context.ts/Auth-context";
+import jwt_decode from "jwt-decode";
 
-export interface PayloadToken {
-  exp: number;
-  iat: number;
-  id: string;
-  role: string;
-  username: string;
-}
 
 let serviceDisplayed;
 
 const KnowMore = () => {
+    const [message, setMessage] = useState<string>();
   const [displayCard, setDisplayCard] = useState<Services>();
-  const navigate = useNavigate();
 
-  const location = useLocation();
+const [tokenId, setTokenId] = useState<string>();
+  const { savedToken, onAuthChange} = useContext(AuthContext)
+
   const params = useParams();
   console.log("________params", params);
-  console.log("________location", location);
 
+  const navigate = useNavigate()
+  console.log("SavedToken avant use effect", savedToken);
   useEffect(() => {
+  
+    onAuthChange(savedToken);
+    if (savedToken) {
+      const decoded: PayloadToken = jwt_decode(savedToken);
+      console.log("le payload", decoded.id);
+      setTokenId(decoded.id);
+  
+    }
+  
     axios
-      .get(`http://localhost:8080/api/services/detail/${params.id}`)
+      .get(`http://localhost:8080/api/services/detail/${params.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+        },
+      })
       .then((res) => {
         serviceDisplayed = res.data;
+        console.log("serviceDisplayed", serviceDisplayed);
         setDisplayCard(serviceDisplayed);
+
       })
       .catch((error) => console.log(error));
   }, []);
+console.log("SavedToken après use effect",tokenId);
+console.log("DisplayCard", displayCard)
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
-       console.log("bouton cliqué");
-
-//        let test:PayloadToken;
-//        let testId:string = test.id
-//        if(testId){
-// console.log("test", testId);
-//        }
-
-
-
-
+      console.log("bouton cliqué");
+    if(tokenId && displayCard){
+if(tokenId===displayCard.createur.id){
+setMessage("Désolé, ce service vous appartient")
+}else{
     axios
-      .patch(`http://localhost:8080/api/services/valid/${params.id}`, {
-
-        
-      },
-       
-         {headers: {
-          Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
-         },}
+      .patch(
+        `http://localhost:8080/api/services/valid/${params.id}`,{
+              client:tokenId
+        },
+      
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        }
       )
       .then((res) => {
         console.log("---------res", res);
+        navigate("/services")
       })
       .catch((error) => {
         console.log(error);
@@ -69,7 +79,7 @@ const KnowMore = () => {
           navigate("/connexion");
         }
       });
-  };
+  }}};
 
   return (
     <div>
@@ -84,9 +94,11 @@ const KnowMore = () => {
         <p>date d'échéance: {displayCard?.echeance}</p>
         <p>Détails de la demande: {displayCard?.libelle}</p>
         <ValidBouton handleClick={boutonEvent} />
+        <span className="message">{message}</span>
       </div>
     </div>
   );
 };
-
+ 
 export default KnowMore;
+  

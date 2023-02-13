@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useContext, useEffect, useState } from "react";
 import Bouton from "./Bouton";
-import "./Card.css";
-import { Services } from "../pages/Main";
+import "./CardDetail.css";
+import { PayloadToken, Services } from "../pages/Services";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context.ts/Auth-context";
+import jwt_decode from "jwt-decode";
 
 export interface ServiceProp {
   service: Services;
@@ -11,11 +13,29 @@ export interface ServiceProp {
   // categorie: Category;
 }
 
-export const Card = ({ service }: ServiceProp) => {
-  // const [SelectedCard, setSelectedCard] = useState<Services>();
+export const CardDetail = ({ service }: ServiceProp) => {
+
   console.log("SEEEEERVICE", service);
 
   const navigate = useNavigate();
+  const [tokenRole, setTokenRole] = useState<string>();
+const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
+  useContext(AuthContext);
+ 
+   useEffect(() => {
+     onAuthChange(savedToken);
+     tokenFunction(savedToken);
+     console.log("voici le resultat pour savedToken", savedToken);
+     if (savedToken) {
+       const decoded: PayloadToken = jwt_decode(savedToken);
+       console.log("le payload", decoded.role);
+       setTokenRole(decoded.role);
+       console.log("etat d'expiration token dans la navbar", validTimeToken);
+     }
+     if (validTimeToken === "token expiré") {
+       window.location.reload();
+     }
+   }, []);
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
     navigate(`/services/${service.id}`);
@@ -42,6 +62,7 @@ export const Card = ({ service }: ServiceProp) => {
 
   return (
     <div>
+      {(service.client===null?(
       <div className="card mb-3" style={{ maxWidth: 540 }}>
         <div className="row g-0">
           <div className="col-md-4">
@@ -69,17 +90,22 @@ export const Card = ({ service }: ServiceProp) => {
                     Pseudo: {service.service.createur.pseudo}
                   </small>
                 </p> */}
+                {savedToken?(
               <div>
                 {" "}
                 <Bouton handleClick={boutonEvent} />
               </div>
+              ):(
+                <div></div>
+              )}
             </div>
           </div>
         </div>
       </div>
+      ):<div></div>)}
     </div>
   );
 };
 //
 
-export default Card;
+export default CardDetail;

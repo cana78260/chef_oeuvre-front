@@ -11,13 +11,13 @@ const ValidBouton = ({ handleClick }: ValidBoutonProps) => {
 
 
 const click = (event: React.MouseEvent<HTMLButtonElement>) =>
-  handleClick(event);
+{  handleClick(event);}
 
 
   return (
     <div>
       {" "}
-      <button type="button" className="css-button-retro--yellow" onClick={click}>
+      <button type="button" className="css-button-retro--green" onClick={click}>
         Valider
       </button>
     </div>

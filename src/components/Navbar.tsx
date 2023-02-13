@@ -1,9 +1,55 @@
-import React from "react";
+import React, { SyntheticEvent, useContext, useEffect, useState } from "react";
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context.ts/Auth-context";
+import jwt_decode from "jwt-decode";
+import { PayloadToken } from "../pages/Services";
 
 
 const Navbar = () => {
+
+
+const navigate = useNavigate();
+const [tokenRole, setTokenRole] = useState<string>();
+const {savedToken, validTimeToken, tokenFunction, onAuthChange} = useContext(AuthContext);
+
+ console.log("TOKEN ROLE DANS NAVBAR", tokenRole);
+
+ useEffect(()=>{
+  onAuthChange(savedToken);
+  tokenFunction(savedToken);
+  console.log("voici le resultat pour savedToken", savedToken);
+  if(savedToken) {
+    const decoded: PayloadToken = jwt_decode(savedToken);
+    console.log("le payload", decoded.role);
+    setTokenRole(decoded.role);
+    console.log("etat d'expiration token dans la navbar", validTimeToken);
+ }
+ if(validTimeToken === "token expiré") {
+  window.location.reload();
+ }
+},[]);
+
+const tokenVerify = (e:SyntheticEvent)=> {
+  tokenFunction(savedToken);
+  console.log("valide time token verify", validTimeToken);
+  if(!localStorage.getItem("accesstoken")||validTimeToken==="token expiré") {
+    window.location.reload();
+  }
+};
+
+const handleClickDecoBouton = (e:React.SyntheticEvent<HTMLInputElement>)=>{
+  let monToken = localStorage.getItem("accesstoken");
+  console.log("----------etat local storage avant deco", monToken);
+  localStorage.removeItem("accesstoken");
+  monToken = localStorage.getItem("accesstoken");
+   console.log("----------etat local storage apres deco", monToken);
+   navigate("/");
+   window.location.reload();
+}
+
+
+
   return (
     <div>
       <div className="global-navbar">
@@ -52,50 +98,76 @@ const Navbar = () => {
                   {/* <a className='nav-link' href='#'>
                 Details
               </a> */}
-                  <NavLink to="main" className="nav-link">
-                    Journal de bord
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
-                  <NavLink to="subscribe" className="nav-link">
-                    Inscription
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
-                  <NavLink to="connexion" className="nav-link">
-                    Connexion
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
                   <NavLink to="services" className="nav-link">
                     Services
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                {(!savedToken && (
+                  <>
+                    <li className="nav-item">
+                      {/* <a className='nav-link' href='#'>
+                Details
+              </a> */}
+                      <NavLink to="subscribe" className="nav-link">
+                        Inscription
+                      </NavLink>
+                    </li>
+
+                    <li className="nav-item">
+                      {/* <a className='nav-link' href='#'>
+                Details
+              </a> */}
+                      <NavLink to="connexion" className="nav-link">
+                        Connexion
+                      </NavLink>
+                    </li>
+                  </>
+                ))||(
+
+                <>
+                  <li className="nav-item">
+                    {/* <a className='nav-link' href='#'>
+                Details
+              </a> */}
+                    <NavLink
+                      to="main"
+                      className="nav-link"
+                      onClick={tokenVerify}
+                    >
+                      Journal de bord
+                    </NavLink>
+                  </li>
+                  {/* <li className="nav-item"> */}
                   {/* <a className='nav-link' href='#'>
                 Details
               </a> */}
-                  <NavLink to="messagerie" className="nav-link">
+                  {/* <NavLink to="messagerie" className="nav-link">
                     Messagerie
                   </NavLink>
-                </li>
-                <li className="nav-item">
-                  {/* <a className='nav-link' href='#'>
+                </li> */}
+                  <li className="nav-item">
+                    {/* <a className='nav-link' href='#'>
                 Details
               </a> */}
-                  <NavLink to="adminUser" className="nav-link">
-                    Admin
-                  </NavLink>
-                </li>
+                    <NavLink
+                      to="adminUser"
+                      className="nav-link"
+                      onClick={tokenVerify}
+                    >
+                      Admin
+                    </NavLink>
+                  </li>
+                  <li className="li-deco">
+                    <input
+                      type="button"
+                      value="Déconnexion"
+                      id="decoBtn"
+                      className="btn btn-danger btn-sm "
+                      onClick={handleClickDecoBouton}
+                    />
+                  </li>
+                </>
+                )}
               </ul>
             </div>
           </div>
