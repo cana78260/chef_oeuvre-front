@@ -168,13 +168,29 @@ const Services = () => {
             </div>
           </ul>
         </div>
+
         <div
           className="container-fluid custom-main"
           style={{ display: "flex", flexWrap: "wrap" }}
         >
           {/* {servicesDisplayed.map()} */}
           {/* <p>Journal de bord</p> */}
+
           <div>
+            <div>
+              <nav className="navbar bg-body-tertiary">
+                <div className="container-fluid">
+                  <form className="d-flex" role="search">
+                    <input
+                      className="form-control me-2"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                  </form>
+                </div>
+              </nav>
+            </div>
             <ul>
               {listServiceDisplayed.map((dataService) => (
                 <>
