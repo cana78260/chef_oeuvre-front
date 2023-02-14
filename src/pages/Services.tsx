@@ -1,10 +1,14 @@
 import axios from "axios";
 import "./Services.css";
-import React, { useEffect, useState } from "react";
+import React, {
+  ChangeEvent,
+  FormEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import _ from "lodash";
 import Card, { CardDetail } from "../components/CardDetail";
-
-
 
 //  interface pour l'objet du token payload decodé
 export interface PayloadToken {
@@ -14,7 +18,6 @@ export interface PayloadToken {
   role: string;
   username: string;
 }
-
 
 export interface Role {
   id: string;
@@ -76,6 +79,8 @@ const Services = () => {
 
   const [listCategories, setListCategories] = useState<Category[]>([]);
   const [checkCategories, setCheckCategories] = useState<string[]>([]);
+  // const [searchBarInput, setSearchBarInput] = useState<string>();
+  const searchBarInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     axios
@@ -130,16 +135,25 @@ const Services = () => {
     setlistServiceDisplayed(resultFilteredServices);
 
     console.log("resultfilter***************", resultFilteredServices);
-    // useEffect(() => {
-
-    //     axios
-    //     .get("http://localhost:8080/api/services")
-    //     .then((res) =>{listServices= res.data;
-    //    setServicesDisplayed(listServices);
-    // console.log("---------------setServicesDisplayed", setServicesDisplayed);})
-    // })
   }
 
+    const [searchValue, setSearchValue] = useState<string>('');
+    const inputRef = useRef<HTMLInputElement>(null);
+  const handleSearchBar = (e: ChangeEvent<HTMLInputElement>) => {
+  const value = inputRef.current?.value ||"";
+  setSearchValue(value);
+  }
+  console.log("searchValue,,,,,,,,,,,,", searchValue);
+//   const handleSearchBar = (e: ChangeEvent<HTMLInputElement>) => {
+//     e.preventDefault();
+//     let searchbarValue;
+//     if(searchbarValue){
+//       searchbarValue = searchBarInput.current?.value
+//     }
+//     console.log("searchbar,,,,,,,,,,,,,", searchbarValue);
+//   };
+// console.log("searchbar,,,,,,,,,,,,,", handleSearchBar);
+//   console.log("searchBarInput--------------", searchBarInput);
   return (
     <div>
       <div className="d-flex align-items-stretch">
@@ -184,9 +198,14 @@ const Services = () => {
                     <input
                       className="form-control me-2"
                       type="search"
+                      // id="search"
                       placeholder="Search"
                       aria-label="Search"
+                      value={searchValue}
+                      onChange={handleSearchBar}
+                      ref={inputRef}
                     />
+                    {/* <label className="form-control me-2" htmlFor="search"/> */}
                   </form>
                 </div>
               </nav>
