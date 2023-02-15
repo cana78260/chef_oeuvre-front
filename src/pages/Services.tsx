@@ -76,11 +76,18 @@ const Services = () => {
   const [listServiceDisplayed, setlistServiceDisplayed] = useState<Services[]>([
     ...listServices,
   ]);
-
+const [searchValue, setSearchValue] = useState<string>("");
+const inputRef = useRef<HTMLInputElement>(null);
   const [listCategories, setListCategories] = useState<Category[]>([]);
   const [checkCategories, setCheckCategories] = useState<string[]>([]);
   // const [searchBarInput, setSearchBarInput] = useState<string>();
   const searchBarInput = useRef<HTMLInputElement>(null);
+
+  const handleSearchBar = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = inputRef.current?.value || ""
+    setSearchValue(value);
+globalSearch({search: value})
+  };
 
   useEffect(() => {
     axios
@@ -119,41 +126,47 @@ const Services = () => {
       ];
     }
     setCheckCategories(tab);
+    globalSearch({tab: tab})
+   
 
-    let resultFilteredServices: Services[];
-    if (tab.length > 0) {
-      resultFilteredServices = listServices.filter((serv) =>
-        tab.includes(serv.categorie.intitule)
-      );
-      console.log("----------------listServices", listServices);
-
-      console.log(";;;;;;;;;;;;;;;tab", tab);
-    } else {
-      resultFilteredServices = [...listServices];
-    }
-
-    setlistServiceDisplayed(resultFilteredServices);
-
-    console.log("resultfilter***************", resultFilteredServices);
+    
   }
 
-    const [searchValue, setSearchValue] = useState<string>('');
-    const inputRef = useRef<HTMLInputElement>(null);
-  const handleSearchBar = (e: ChangeEvent<HTMLInputElement>) => {
-  const value = inputRef.current?.value ||"";
-  setSearchValue(value);
+  function globalSearch(objetRecherche: {tab?: string[], search?: string}) {
+    if(!objetRecherche.tab) {
+      objetRecherche.tab = checkCategories;
+    } 
+    if (!objetRecherche.search) {
+      objetRecherche.search = searchValue;
+    } 
+     let resultFilteredServices: Services[];
+     if ( objetRecherche.tab.length > 0) {
+       resultFilteredServices = listServices.filter((serv) =>
+         objetRecherche.tab && objetRecherche.tab.includes(serv.categorie.intitule)
+       );
+       console.log("----------------listServices", listServices);
+
+       console.log(";;;;;;;;;;;;;;;tab", objetRecherche.tab);
+     } else {
+       resultFilteredServices = [...listServices];
+     }
+
+     if (searchValue) {
+       resultFilteredServices = resultFilteredServices.filter((serv) =>
+         serv.departement
+           .toLocaleLowerCase()
+           .includes(searchValue.toLocaleLowerCase())
+       );
+       console.log("searchValue", searchValue);
+     }
+
+     setlistServiceDisplayed(resultFilteredServices);
   }
+ 
+  console.log("listServiceDisplayed********************", listServiceDisplayed);
+
   console.log("searchValue,,,,,,,,,,,,", searchValue);
-//   const handleSearchBar = (e: ChangeEvent<HTMLInputElement>) => {
-//     e.preventDefault();
-//     let searchbarValue;
-//     if(searchbarValue){
-//       searchbarValue = searchBarInput.current?.value
-//     }
-//     console.log("searchbar,,,,,,,,,,,,,", searchbarValue);
-//   };
-// console.log("searchbar,,,,,,,,,,,,,", handleSearchBar);
-//   console.log("searchBarInput--------------", searchBarInput);
+
   return (
     <div>
       <div className="d-flex align-items-stretch">
@@ -195,16 +208,18 @@ const Services = () => {
               <nav className="navbar bg-body-tertiary">
                 <div className="container-fluid">
                   <form className="d-flex" role="search">
-                    <input
-                      className="form-control me-2"
-                      type="search"
-                      // id="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                      value={searchValue}
-                      onChange={handleSearchBar}
-                      ref={inputRef}
-                    />
+                 
+                      <input
+                        className="form-control me-2"
+                        type="search"
+                        // id="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                        value={searchValue}
+                        onChange={handleSearchBar}
+                        ref={inputRef}
+                      />
+                 
                     {/* <label className="form-control me-2" htmlFor="search"/> */}
                   </form>
                 </div>

@@ -21,8 +21,11 @@ export const CardDetail = ({ service }: ServiceProp) => {
   const [tokenRole, setTokenRole] = useState<string>();
 const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
   useContext(AuthContext);
+  const [SelectedCard, setSelectedCard] = useState<Services>();
  
    useEffect(() => {
+
+
      onAuthChange(savedToken);
      tokenFunction(savedToken);
      console.log("voici le resultat pour savedToken", savedToken);
@@ -35,7 +38,17 @@ const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
      if (validTimeToken === "token expiré") {
        window.location.reload();
      }
+// if (SelectedCard) {
+//       axios
+//         .get(`http://localhost:8080/api/services/${SelectedCard.id}`)
+//         .then((res) => setSelectedCard(res.data))
+//         .catch((error) => console.log(error));
+//     }
+
+
    }, []);
+
+   console.log("SelectedCard---------", SelectedCard);
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
     navigate(`/services/${service.id}`);
@@ -82,7 +95,7 @@ const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
                 <li className="card-text">Titre: {service.titre}</li>
                 <li className="card-text">Pseudo: {service.createur.pseudo}</li>
                 <li className="card-text">
-                  Département: {service.createur.departement}
+                  Département: {service.departement}
                 </li>
               </ul>
               {/* <p className="card-text">

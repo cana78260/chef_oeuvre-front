@@ -64,7 +64,7 @@ const CardFinalise = ( {service}: ServiceProp) => {
                 <li className="card-text">Titre: {service.titre}</li>
                 <li className="card-text">Pseudo: {service.createur.pseudo}</li>
                 <li className="card-text">
-                  Département: {service.createur.departement}
+                  Département: {service.departement}
                 </li>
               </ul>
               {/* <p className="card-text">

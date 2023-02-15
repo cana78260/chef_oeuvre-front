@@ -65,7 +65,7 @@ function App() {
           <Route
             path="/adminUser"
             element={
-              savedToken !== null ? <AdminUser /> : <Navigate to="/connexion" />
+              savedToken !== null ?( <AdminUser /> ): (<Navigate to="/connexion" />)
             }
           />
           <Route path="/*" element={<Page404 />} />
