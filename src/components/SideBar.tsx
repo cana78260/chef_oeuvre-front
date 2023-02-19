@@ -25,8 +25,16 @@ const SideBar = ({ listElementCategories }: filterSideBarProps) => {
             <p className="mb-1 fs-5 fw-semibold">Catégories</p>
             {categories.map((categ, i) => (
               <div className="form-check" key={i}>
-                <input className="form-check-input" type="checkbox" value={categ} id={categ}/>
-                <label className="form-check-label" htmlFor={categ}>{" "} {categ}</label>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  value={categ}
+                  id={categ}
+                />
+                <label className="form-check-label" htmlFor={categ}>
+                  {" "}
+                  {categ}
+                </label>
               </div>
             ))}
           </div>

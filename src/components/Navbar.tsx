@@ -212,7 +212,7 @@ const Navbar = () => {
                         type="button"
                         value="Déconnexion"
                         id="decoBtn"
-                        className="btn btn-danger btn-sm "
+                        className="btn btn-success btn-sm "
                         onClick={handleClickDecoBouton}
                       />
                     </li>
