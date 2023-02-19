@@ -10,4 +10,11 @@ h1{
 }
 
 
+.flex{
+    display: flex;
+    justify-content: center;
+}
 
+.createService{
+    margin-right: 40px;
+}

@@ -5,50 +5,51 @@ import { AuthContext } from "../Context.ts/Auth-context";
 import jwt_decode from "jwt-decode";
 import { PayloadToken } from "../pages/Services";
 
-
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [tokenRole, setTokenRole] = useState<string>();
+  const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
+    useContext(AuthContext);
 
+  console.log("TOKEN ROLE DANS NAVBAR", tokenRole);
+  console.log("SAVEEEED TTOKEN", savedToken);
+  console.log("validTimeToken TTOKEN", validTimeToken);
 
-const navigate = useNavigate();
-const [tokenRole, setTokenRole] = useState<string>();
-const {savedToken, validTimeToken, tokenFunction, onAuthChange} = useContext(AuthContext);
+  useEffect(() => {
+    //onAuthChange(savedToken);
+    //tokenFunction(savedToken);
+    console.log("voici le resultat pour savedToken", savedToken);
+    if (savedToken) {
+      const decoded: PayloadToken = jwt_decode(savedToken);
+      console.log("le payload", decoded.role);
+      setTokenRole(decoded.role);
+      console.log("etat d'expiration token dans la navbar", validTimeToken);
+    }
+    if (validTimeToken === "token expiré") {
+      window.location.reload();
+    }
+  }, [validTimeToken, savedToken]);
 
- console.log("TOKEN ROLE DANS NAVBAR", tokenRole);
+  const tokenVerify = (e: SyntheticEvent) => {
+    tokenFunction(savedToken);
+    console.log("valide time token verify", validTimeToken);
+    if (
+      !localStorage.getItem("accesstoken") ||
+      validTimeToken === "token expiré"
+    ) {
+      window.location.reload();
+    }
+  };
 
- useEffect(()=>{
-  onAuthChange(savedToken);
-  tokenFunction(savedToken);
-  console.log("voici le resultat pour savedToken", savedToken);
-  if(savedToken) {
-    const decoded: PayloadToken = jwt_decode(savedToken);
-    console.log("le payload", decoded.role);
-    setTokenRole(decoded.role);
-    console.log("etat d'expiration token dans la navbar", validTimeToken);
- }
- if(validTimeToken === "token expiré") {
-  window.location.reload();
- }
-},[]);
-
-const tokenVerify = (e:SyntheticEvent)=> {
-  tokenFunction(savedToken);
-  console.log("valide time token verify", validTimeToken);
-  if(!localStorage.getItem("accesstoken")||validTimeToken==="token expiré") {
+  const handleClickDecoBouton = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    let monToken = localStorage.getItem("accesstoken");
+    console.log("----------etat local storage avant deco", monToken);
+    localStorage.removeItem("accesstoken");
+    monToken = localStorage.getItem("accesstoken");
+    console.log("----------etat local storage apres deco", monToken);
+    navigate("/");
     window.location.reload();
-  }
-};
-
-const handleClickDecoBouton = (e:React.SyntheticEvent<HTMLInputElement>)=>{
-  let monToken = localStorage.getItem("accesstoken");
-  console.log("----------etat local storage avant deco", monToken);
-  localStorage.removeItem("accesstoken");
-  monToken = localStorage.getItem("accesstoken");
-   console.log("----------etat local storage apres deco", monToken);
-   navigate("/");
-   window.location.reload();
-}
-
-
+  };
 
   return (
     <div>
@@ -90,7 +91,7 @@ const handleClickDecoBouton = (e:React.SyntheticEvent<HTMLInputElement>)=>{
                   {/* <a className='nav-link active' aria-current='page' href='#'>
                 Home
               </a> */}
-                  <NavLink to="/" end className="nav-link">
+                  <NavLink to="/welcome" end className="nav-link">
                     Accueil
                   </NavLink>
                 </li>
@@ -122,51 +123,100 @@ const handleClickDecoBouton = (e:React.SyntheticEvent<HTMLInputElement>)=>{
                       </NavLink>
                     </li>
                   </>
-                ))||(
-
-                <>
-                  <li className="nav-item">
+                )) || (
+                  <>
+                    <li className="nav-item">
+                      {/* <a className='nav-link' href='#'>
+                Details
+              </a> */}
+                      <NavLink
+                        to="main"
+                        className="nav-link"
+                        onClick={tokenVerify}
+                      >
+                        Journal de bord
+                      </NavLink>
+                    </li>
+                    {/* <li className="nav-item"> */}
                     {/* <a className='nav-link' href='#'>
                 Details
               </a> */}
-                    <NavLink
-                      to="main"
-                      className="nav-link"
-                      onClick={tokenVerify}
-                    >
-                      Journal de bord
-                    </NavLink>
-                  </li>
-                  {/* <li className="nav-item"> */}
-                  {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
-                  {/* <NavLink to="messagerie" className="nav-link">
+                    {/* <NavLink to="messagerie" className="nav-link">
                     Messagerie
                   </NavLink>
                 </li> */}
-                  <li className="nav-item">
-                    {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
-                    <NavLink
-                      to="adminUser"
-                      className="nav-link"
-                      onClick={tokenVerify}
-                    >
-                      Admin
-                    </NavLink>
-                  </li>
-                  <li className="li-deco">
-                    <input
-                      type="button"
-                      value="Déconnexion"
-                      id="decoBtn"
-                      className="btn btn-danger btn-sm "
-                      onClick={handleClickDecoBouton}
-                    />
-                  </li>
-                </>
+                    {tokenRole === "admin" &&
+                      tokenFunction(savedToken) && (
+                        <li className="nav-item dropdown">
+                          <NavLink
+                            to="/"
+                            className="nav-link buttonStyle  dropdown-toggle"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            onClick={tokenVerify}
+                          >
+                            <strong
+                            // data-bs-toggle="collapse"
+                            // data-bs-target="#navbarNav"
+                            >
+                              {" "}
+                              Admin{" "}
+                            </strong>
+                          </NavLink>
+                          <ul className="dropdown-menu">
+                            <li>
+                              {/* <a className="dropdown-item" href="#">
+                            Action
+                          </a> */}
+                              <NavLink
+                                to="/adminServices"
+                                className="nav-link buttonStyle "
+                                onClick={tokenVerify}
+                              >
+                                <strong> Gestion des services </strong>
+                              </NavLink>
+                            </li>
+                            <li>
+                              <NavLink
+                                to="/adminUsers"
+                                className="nav-link buttonStyle "
+                                onClick={tokenVerify}
+                              >
+                                <strong> Gestion des utilisateurs</strong>
+                              </NavLink>
+                            </li>
+                            <li>
+                              <NavLink
+                                to="/adminMessages"
+                                className="nav-link buttonStyle "
+                                onClick={tokenVerify}
+                              >
+                                <strong> Gestion des messages </strong>
+                              </NavLink>
+                            </li>
+                            <li>
+                              <NavLink
+                                to="/adminCategories"
+                                className="nav-link buttonStyle "
+                                onClick={tokenVerify}
+                              >
+                                <strong> Gestion des catégories </strong>
+                              </NavLink>
+                            </li>
+                          </ul>
+                        </li>
+                      )}
+                    <li className="li-deco">
+                      <input
+                        type="button"
+                        value="Déconnexion"
+                        id="decoBtn"
+                        className="btn btn-danger btn-sm "
+                        onClick={handleClickDecoBouton}
+                      />
+                    </li>
+                  </>
                 )}
               </ul>
             </div>

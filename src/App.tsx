@@ -18,6 +18,12 @@ import { useContext } from "react";
 import { UserContext } from "./Context.ts/User-context";
 import ModifyService from "./pages/ModifyService";
 import DeleteService from "./pages/DeleteService";
+import AdminServices from "./pages/AdminServices";
+import AdminCategories from "./pages/AdminCategories";
+import AdminMessages from "./pages/AdminMessages";
+import AdminModifyService from "./pages/AdminModifyService";
+import AdminModifyUser from "./pages/AdminModifyUser";
+import ModifCompte from "./pages/ModifCompte";
 
 function App() {
   const { savedToken } = useContext(AuthContext);
@@ -63,9 +69,59 @@ function App() {
             }
           />
           <Route
-            path="/adminUser"
+            path="/adminUsers"
             element={
-              savedToken !== null ?( <AdminUser /> ): (<Navigate to="/connexion" />)
+              savedToken !== null ? <AdminUser /> : <Navigate to="/connexion" />
+            }
+          />
+          <Route
+            path="/adminModifyUser/:id"
+            element={
+              savedToken !== null ? (
+                <AdminModifyUser />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="/adminServices"
+            element={
+              savedToken !== null ? (
+                <AdminServices />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="/adminModifyServices/:id"
+            element={
+              savedToken !== null ? (
+                <AdminModifyService />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="adminCategories"
+            element={
+              savedToken !== null ? (
+                <AdminCategories />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="adminMessages"
+            element={
+              savedToken !== null ? (
+                <AdminMessages />
+              ) : (
+                <Navigate to="/connexion" />
+              )
             }
           />
           <Route path="/*" element={<Page404 />} />
@@ -82,6 +138,16 @@ function App() {
             element={
               savedToken !== null ? (
                 <CreateService />
+              ) : (
+                <Navigate to="/connexion" />
+              )
+            }
+          />
+          <Route
+            path="/modifCompte/:id"
+            element={
+              savedToken !== null ? (
+                <ModifCompte/>
               ) : (
                 <Navigate to="/connexion" />
               )

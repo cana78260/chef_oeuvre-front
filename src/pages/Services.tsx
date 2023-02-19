@@ -76,17 +76,20 @@ const Services = () => {
   const [listServiceDisplayed, setlistServiceDisplayed] = useState<Services[]>([
     ...listServices,
   ]);
-const [searchValue, setSearchValue] = useState<string>("");
-const inputRef = useRef<HTMLInputElement>(null);
+  const [searchValue, setSearchValue] = useState<string>("");
   const [listCategories, setListCategories] = useState<Category[]>([]);
   const [checkCategories, setCheckCategories] = useState<string[]>([]);
   // const [searchBarInput, setSearchBarInput] = useState<string>();
-  const searchBarInput = useRef<HTMLInputElement>(null);
 
+  // const delayedSearch = useRef(
+  //   _.debounce((value: string) => {
+  //     globalSearch({ search: value});
+  //   }, 500)
+  // );
   const handleSearchBar = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = inputRef.current?.value || ""
+    const value = e.currentTarget.value;
     setSearchValue(value);
-globalSearch({search: value})
+    globalSearch({ search: value });
   };
 
   useEffect(() => {
@@ -126,44 +129,49 @@ globalSearch({search: value})
       ];
     }
     setCheckCategories(tab);
-    globalSearch({tab: tab})
-   
-
-    
+    globalSearch({ tab: tab });
   }
 
-  function globalSearch(objetRecherche: {tab?: string[], search?: string}) {
-    if(!objetRecherche.tab) {
+  function globalSearch(objetRecherche: { tab?: string[]; search?: string }) {
+    console.log("SEARCH", objetRecherche);
+    if (objetRecherche.search === "") {
+      setlistServiceDisplayed([...listServices]);
+      return;
+    }
+    if (!objetRecherche.tab) {
       objetRecherche.tab = checkCategories;
-    } 
+    }
     if (!objetRecherche.search) {
       objetRecherche.search = searchValue;
-    } 
-     let resultFilteredServices: Services[];
-     if ( objetRecherche.tab.length > 0) {
-       resultFilteredServices = listServices.filter((serv) =>
-         objetRecherche.tab && objetRecherche.tab.includes(serv.categorie.intitule)
-       );
-       console.log("----------------listServices", listServices);
+      console.log("Init search");
+    }
+    let resultFilteredServices: Services[];
+    if (objetRecherche.tab.length > 0) {
+      resultFilteredServices = listServices.filter(
+        (serv) =>
+          objetRecherche.tab &&
+          objetRecherche.tab.includes(serv.categorie.intitule)
+      );
+      console.log("----------------listServices", listServices);
 
-       console.log(";;;;;;;;;;;;;;;tab", objetRecherche.tab);
-     } else {
-       resultFilteredServices = [...listServices];
-     }
+      console.log(";;;;;;;;;;;;;;;tab", objetRecherche.tab);
+    } else {
+      resultFilteredServices = [...listServices];
+    }
 
-     if (searchValue) {
-       resultFilteredServices = resultFilteredServices.filter((serv) =>
-         serv.departement
-           .toLocaleLowerCase()
-           .includes(searchValue.toLocaleLowerCase())
-       );
-       console.log("searchValue", searchValue);
-     }
+    if (objetRecherche.search) {
+      let currentSearch = objetRecherche.search;
+      console.log("resultFilteredServices", resultFilteredServices);
+      resultFilteredServices = resultFilteredServices.filter((serv) =>
+        serv.departement
+          .toLocaleLowerCase()
+          .includes(currentSearch.toLocaleLowerCase())
+      );
+      console.log("searchValue", searchValue);
+    }
 
-     setlistServiceDisplayed(resultFilteredServices);
+    setlistServiceDisplayed(resultFilteredServices);
   }
- 
-  console.log("listServiceDisplayed********************", listServiceDisplayed);
 
   console.log("searchValue,,,,,,,,,,,,", searchValue);
 
@@ -208,18 +216,16 @@ globalSearch({search: value})
               <nav className="navbar bg-body-tertiary">
                 <div className="container-fluid">
                   <form className="d-flex" role="search">
-                 
-                      <input
-                        className="form-control me-2"
-                        type="search"
-                        // id="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                        value={searchValue}
-                        onChange={handleSearchBar}
-                        ref={inputRef}
-                      />
-                 
+                    <input
+                      className="form-control me-2"
+                      type="search"
+                      // id="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                      value={searchValue}
+                      onChange={handleSearchBar}
+                    />
+
                     {/* <label className="form-control me-2" htmlFor="search"/> */}
                   </form>
                 </div>
