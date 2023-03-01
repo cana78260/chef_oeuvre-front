@@ -37,7 +37,7 @@ export const AuthContextProvider = ({ children }: AuthContextProps) => {
   const handleAuthChange = (token: string | null) => {
     SetToken(token);
   };
-
+  
   // Fonction contextuelle permettant de vérifier l'expiration d'un token
   const tokenFunction = (token: string | null) => {
     if (token) {

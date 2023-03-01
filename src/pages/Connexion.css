@@ -1,9 +1,14 @@
 
 .title-connect{
-    font-size: 3em;
-    color:#22223b;
-   margin-top: 20px;
-   margin-bottom: 30px;
+     background-color: #22223b;
+   color: #f0ad4e;
+     border: 3px solid #f0ad4e;
+      border-radius: 12px;
+       width: 60%;
+      height:120px;
+      margin: auto;
+      padding-top: 30px;
+      margin-bottom: 20px;
 }
 
 .container.w-50{
@@ -16,3 +21,20 @@
     margin-left: 80px;
  
 }
+
+.container-form-connexion{
+
+    background-color: #22223b;
+    border: 3px solid #f0ad4e;
+    border-radius: 12px;
+    height:400px;
+    width: 80%;
+    margin: 0 auto;
+ 
+}
+
+.container.w-75.connexion{
+padding-top: 100px;
+   
+}
+

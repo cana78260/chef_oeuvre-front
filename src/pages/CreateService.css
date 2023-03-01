@@ -10,3 +10,23 @@ form.createServiceForm {
     margin-left: 35%;
    
 }
+
+.titreCreerService{
+       background-color: #22223b;
+   color: #f0ad4e;
+     border: 3px solid #f0ad4e;
+      border-radius: 12px;
+       width: 500px;
+      height:120px;
+      margin: auto;
+      padding-top: 2%;
+      margin-bottom: 20px;
+}
+
+@media screen and (max-width:622px){
+   .titreCreerService{
+    width:80%;
+    padding-top: 5%;
+ 
+}
+}

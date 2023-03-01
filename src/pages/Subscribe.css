@@ -1,0 +1,39 @@
+.messageDynamique{
+    color:#f0ad4e;
+    font-family: cursive;
+    text-align: center;
+    /* margin-left: 80px; */
+ 
+}
+
+.title-subscribe{
+     background-color: #22223b;
+   color: #f0ad4e;
+     border: 3px solid #f0ad4e;
+      border-radius: 12px;
+       width: 60%;
+      height:120px;
+      margin: auto;
+      padding-top: 30px;
+      margin-bottom: 20px;
+}
+
+.container-form-inscription{
+
+    background-color: #22223b;
+    border: 3px solid #f0ad4e;
+    border-radius: 12px;
+    height:1000px;
+    width: 80%;
+    margin: 0 auto;
+ 
+}
+
+.container.w-75.inscription{
+padding-top: 8%;
+   
+}
+
+.container.w-50{
+    margin-top: 15px;
+}

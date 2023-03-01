@@ -75,47 +75,52 @@ const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
 
   return (
     <div>
-      {(service.client===null?(
-      <div className="card mb-3" style={{ maxWidth: 540 }}>
-        <div className="row g-0">
-          <div className="col-md-4">
-            <img
-              src={`http://localhost:8080/${service.categorie.image}`}
-              className="img-fluid rounded-start"
-              alt="..."
-            />
-          </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">
-                Catégorie: {service.categorie.intitule}
-              </h5>
+      {service.client === null ? (
+        <div className="card mb-3-detail" style={{ maxWidth: 540 }}>
+          <div className="row g-0">
+            <div id="containerImage" className="col-md-4">
+              <img
+                src={`http://localhost:8080/${service.categorie.image}`}
+                className="img-fluid rounded-start-detail"
+                alt="..."
+              />
+            </div>
+            <div className="col-md-8">
+              <div className="card-body">
+                <h6 className="card-title">
+                  Catégorie: {service.categorie.intitule}
+                </h6>
 
-              <ul>
-                <li className="card-text">Titre: {service.titre}</li>
-                <li className="card-text">Pseudo: {service.createur.pseudo}</li>
-                <li className="card-text">
+                <p className="card-text-Detail">Titre: {service.titre}</p>
+                <p className="card-text-Detail">
+                  Pseudo: {service.createur.pseudo}
+                </p>
+                <p className="card-text-Detail">
                   Département: {service.departement}
-                </li>
-              </ul>
-              {/* <p className="card-text">
+                </p>
+
+                {/* <p className="card-text">
                   <small className="text-muted">
                     Pseudo: {service.service.createur.pseudo}
                   </small>
                 </p> */}
-                {savedToken?(
-              <div>
-                {" "}
-                <Bouton handleClick={boutonEvent} />
+                {savedToken ? (
+                  <div className="containerBoutonDetail">
+                    <div className="boutonDetail">
+                      {" "}
+                      <Bouton handleClick={boutonEvent} />
+                    </div>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
-              ):(
-                <div></div>
-              )}
             </div>
           </div>
         </div>
-      </div>
-      ):<div></div>)}
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };

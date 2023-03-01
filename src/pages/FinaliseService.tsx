@@ -62,7 +62,27 @@ const navigate = useNavigate();
   };
   return (
     <div>
-      <h3>Finalise</h3>
+      <div className="titreFinaliseService">
+        <h3>Finalisez votre service</h3>
+      </div>
+      <div className="disclaimerFinalise">
+        <p>Bienvenue sur la page de finalisation de votre service</p>
+        <p>Vous allez conclure votre offre de service </p>
+        <p>
+          Veuillez renseigner le temps que vous avez consacré à la réalisation
+          de votre service
+        </p>
+        <p>
+          Le temps que vous allez renseigné doit être exprimé en{" "}
+          <span>Minutes</span>
+        </p>
+        <p>
+          Exemple: Si vous avez consacré 1 heure, indiquez <span>60</span> dans
+          le champ
+        </p>
+        <p>Soyez objectif et bienveillant lorsque vous indiquerez ce temps</p>
+        <p>Gardez à l'esprit que ce chiffre sera débité du compte-temps de la personne à qui ce service à profité</p>
+      </div>
       <div>
         <form className="formConnexion">
           <div className="mb-3 mail-container">
@@ -71,7 +91,7 @@ const navigate = useNavigate();
               type="text"
               className="htmlForm-control"
               id="inputHour"
-              placeholder="Nombre d'heures"
+              placeholder="minutes"
               ref={FinaliseServ}
             />
           </div>

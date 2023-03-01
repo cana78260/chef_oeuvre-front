@@ -83,16 +83,51 @@ setMessage("Désolé, ce service vous appartient")
 
   return (
     <div>
-      <p>Knowmore</p>
-      <div className="détails">
+      <div className="titreDétailService">
         <h3>Détails du service</h3>
-        <p>Catégorie: {displayCard?.categorie.intitule}</p>
-        <p>titre:{displayCard?.titre}</p>
-        <p>Pseudo: {displayCard?.createur.pseudo}</p>
-        <p>Département: {displayCard?.departement}</p>
-        <p>Ville: {displayCard?.localisation}</p>
-        <p>date d'échéance: {displayCard?.echeance}</p>
-        <p>Détails de la demande: {displayCard?.libelle}</p>
+      </div>
+
+      <div className="container-détails">
+        {" "}
+        <div className="détails">
+          <p>
+            Catégorie:{" "}
+            <span className="corpsSavoirPlus">
+              {displayCard?.categorie.intitule}
+            </span>
+          </p>
+
+          <p>
+            titre:<span className="corpsSavoirPlus">{displayCard?.titre} </span>
+          </p>
+
+          <p>
+            Pseudo:{" "}
+            <span className="corpsSavoirPlus">
+              {displayCard?.createur.pseudo}{" "}
+            </span>
+          </p>
+          <p>
+            Département:{" "}
+            <span className="corpsSavoirPlus">{displayCard?.departement}</span>
+          </p>
+          <p>
+            Ville:{" "}
+            <span className="corpsSavoirPlus">{displayCard?.localisation}</span>
+          </p>
+          <p>
+            date d'échéance:{" "}
+            <span className="corpsSavoirPlus">{displayCard?.echeance}</span>
+          </p>
+          <p>
+            Détails de la demande:
+            <span className="corpsSavoirPlus"> {displayCard?.libelle}</span>
+          </p>
+          <p className="selectionService">Je sélectionne ce service</p>
+        </div>
+      </div>
+      <div id="boutonSavoirPlus">
+        {" "}
         <ValidBouton handleClick={boutonEvent} />
         <span className="message">{message}</span>
       </div>

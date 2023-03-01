@@ -99,13 +99,13 @@ const ModifyService = () => {
 
   return (
     <div>
-      <div className="modifyService-page  ">
+      {/* <div className="modifyService-page  ">
         <section className="container-form-global">
-          <div className="container-form-sub ">
-            <div className="modifyService ">
+          <div className="container-form-sub "> */}
+      {/* <div className="modifyService ">
               <h1>Modifiez votre service</h1>
-            </div>
-            <form
+            </div> */}
+      {/* <form
               method="POST"
               className="modifyServiceForm "
               onSubmit={submitFonction}
@@ -116,11 +116,11 @@ const ModifyService = () => {
                 <select
                   name="Catégorie"
                   id="inputCatégorie"
-                  className="htmlForm-label select"
-                  ref={categorySelect}
+                  className="htmlForm-label select" */}
+      {/* ref={categorySelect}
                   //   onChange={weightFunction}
-                >
-                  <option value="">Catégorie</option>
+                // > */}
+      {/* <option value="">Catégorie</option>
                   {categoryDisplay.map((categorie) => (
                     <option value={categorie.id}>{categorie.intitule}</option>
                   ))}
@@ -203,13 +203,108 @@ const ModifyService = () => {
                   placeholder="Détails du service"
                   ref={libelleInput}
                 />
-              </div>
-              {/* <span className="messageDynamique">{champManquant}</span> */}
-              <ValidBouton handleClick={submitFonction} />
-              <span className="message">{message}</span>
-            </form>
+              </div> */}
+      {/* <span className="messageDynamique">{champManquant}</span> */}
+      {/* <ValidBouton handleClick={submitFonction} />
+              <span className="message">{message}</span> */}
+      {/* </form>
           </div>
         </section>
+      </div> */}
+      {/* ------------------------------------------------------------------------- */}
+      <div className="titreModifService ">
+        <h1>Modifiez votre service</h1>
+      </div>
+      <div className="container-form-ModifService">
+        <div className="container w-75 ModifService">
+          <div id="selectModif" className="form-floating mb-3 ModifService">
+            <select
+              name="Catégorie"
+              id="inputCatégorie"
+              className="form-floating mb-3 modifService"
+              ref={categorySelect}
+              //   onChange={weightFunction}
+            >
+              <option value="">Catégorie</option>
+              {categoryDisplay.map((categorie) => (
+                <option value={categorie.id}>{categorie.intitule}</option>
+              ))}
+            </select>
+            <label htmlFor="inputCatégorie"></label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="titre"
+              type="titre"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={titreInput}
+            />
+            <label htmlFor="floatingInput">Titre</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="localisation"
+              type="localisation"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={localisationInput}
+            />
+            <label htmlFor="floatingInput">Localisation</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="département"
+              type="département"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={departementInput}
+            />
+            <label htmlFor="floatingInput">Département</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="création"
+              type="création"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={creationInput}
+            />
+            <label htmlFor="floatingInput">Création: JJ-MM-AAAA</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="échéance"
+              type="échéance"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={echeanceInput}
+            />
+            <label htmlFor="floatingInput">Echéance: JJ-MM-AAAA</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="libellé"
+              type="libellé"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={libelleInput}
+            />
+            <label htmlFor="floatingInput">Libellé</label>
+          </div>
+          <div className="SubmitModifService"></div>
+          {/* <span className="messageConnexion">{message}</span> */}
+        </div>
+      </div>
+      <div className="container w-50">
+        <ValidBouton handleClick={submitFonction} />
+        <span className="message">{message}</span>
       </div>
     </div>
   );

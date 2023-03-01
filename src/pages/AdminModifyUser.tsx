@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { FormEvent, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import ValidBouton from '../components/ValidBouton';
 import "./Admin.css";
 
 const AdminModifyUser = () => {
@@ -244,6 +245,139 @@ const formData = {
               </form>
             </div>
           </section>
+        </div>
+        {/* ---------------------------------------------------------- */}
+
+        <div className="container-form-modification">
+          <div className="container w-75 modification">
+            <div className="form-floating mb-3 modification">
+              <input
+                name="nom"
+                type="nom"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Nom"
+                ref={nameElement}
+                // value={nameElement}
+              />
+              <label htmlFor="floatingInput">Nom</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="prénom"
+                type="prénom"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Prénom"
+                ref={prenomElement}
+                // value={prenomElement}
+              />
+              <label htmlFor="floatingInput">Prénom</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="pseudo"
+                type="pseudo"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Pseudo"
+                ref={pseudoElement}
+                // value={pseudoElement}
+              />
+              <label htmlFor="floatingInput">Pseudo</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="age"
+                type="age"
+                className="form-control"
+                placeholder="Age"
+                // ref={ageElement}
+                onChange={ageFunction}
+                value={updateage}
+              />
+              <label htmlFor="floatingInput">Age</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="genre"
+                type="genre"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Genre"
+                ref={genreElement}
+                // value={genreElement}
+              />
+              <label htmlFor="floatingInput">Genre</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="adresse"
+                type="adresse"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Adresse"
+                ref={adressElement}
+                // value={adressElement}
+              />
+              <label htmlFor="floatingInput">Adresse</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="ville"
+                type="ville"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Ville"
+                ref={villeElement}
+                // value={villeElement}
+              />
+              <label htmlFor="floatingInput">ville</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="departement"
+                type="departement"
+                className="form-control"
+                id="floatingInput"
+                placeholder="département"
+                ref={departementElement}
+                // value={departementElement}
+              />
+              <label htmlFor="floatingInput">Département</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="mail"
+                type="mail"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Email"
+                ref={mailElement}
+                // value={mailElement}
+              />
+              <label htmlFor="floatingInput">Adresse mail</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="password"
+                type="password"
+                className="form-control"
+                id="floatingPassword"
+                onChange={compteFunction}
+                value={compteTemps}
+              />
+              <label htmlFor="floatingPassword">{compteTemps}</label>
+            </div>
+
+            <div className="SubmitModification"></div>
+            {/* <span className="messageConnexion">{message}</span> */}
+          </div>
+        </div>
+        <div className="container w-50">
+          <span className="messageDynamique">{champManquant}</span>
+          <ValidBouton handleClick={submitFonction} />
+          {/* <ValidBouton handleClick={handleLoginForm} /> */}
         </div>
       </div>
     );

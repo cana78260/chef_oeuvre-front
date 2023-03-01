@@ -115,31 +115,33 @@ const Connexion = () => {
       {/* </div>
       </div> */}
       <h1 className="title-connect">Connexion</h1>
-      <div className="container w-75 connexion">
-        <div className="form-floating mb-3 connexion">
-          <input
-            name="mail"
-            type="mail"
-            className="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-            onInput={mailFunction}
-          />
-          <label htmlFor="floatingInput">adresse mail</label>
+      <div className="container-form-connexion">
+        <div className="container w-75 connexion">
+          <div className="form-floating mb-3 connexion">
+            <input
+              name="mail"
+              type="mail"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              onInput={mailFunction}
+            />
+            <label htmlFor="floatingInput">adresse mail</label>
+          </div>
+          <div className="form-floating mb-3 connexion">
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+              onInput={passwordFunction}
+            />
+            <label htmlFor="floatingPassword">Mot de passe</label>
+          </div>
+          <div className="SubmitConnexion"></div>
+          <span className="messageConnexion">{message}</span>
         </div>
-        <div className="form-floating mb-3 connexion">
-          <input
-            name="password"
-            type="password"
-            className="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-            onInput={passwordFunction}
-          />
-          <label htmlFor="floatingPassword">Mot de passe</label>
-        </div>
-        <div className="SubmitConnexion"></div>
-        <span className="messageConnexion">{message}</span>
       </div>
       <div className="container w-50">
         <ValidBouton handleClick={handleLoginForm} />

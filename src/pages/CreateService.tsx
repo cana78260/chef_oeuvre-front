@@ -104,9 +104,8 @@ categorie: categorySelect.current?.value
   };
 
   return (
-   
     <div>
-      <div className="createService-page  ">
+      {/* <div className="createService-page  ">
         <section className="container-form-global">
           <div className="container-form-sub ">
             <div className="createService ">
@@ -129,9 +128,7 @@ categorie: categorySelect.current?.value
                 >
                   <option value="">Catégorie</option>
                   {categoryDisplay.map((categorie) => (
-                    <option value={categorie.id}>
-                      {categorie.intitule}
-                    </option>
+                    <option value={categorie.id}>{categorie.intitule}</option>
                   ))}
                 </select>
               </div>
@@ -171,7 +168,7 @@ categorie: categorySelect.current?.value
                   className="htmlForm-control text-center"
                   id="exampleInputAge"
                   placeholder="Departement"
-                 ref={departementInput}
+                  ref={departementInput}
                 />
               </div>
               <div className="mb-3">
@@ -184,7 +181,7 @@ categorie: categorySelect.current?.value
                   className="htmlForm-control text-center"
                   id="exampleInputCreation"
                   placeholder="Date de création"
-                 ref={creationInput}
+                  ref={creationInput}
                 />
               </div>
               <div className="mb-3">
@@ -210,17 +207,114 @@ categorie: categorySelect.current?.value
                   className="htmlForm-control text-center"
                   id="inputLibelle"
                   placeholder="Détails du service"
-                ref={libelleInput}
+                  ref={libelleInput}
                 />
               </div>
               {/* <span className="messageDynamique">{champManquant}</span> */}
-              <ValidBouton handleClick={submitFonction} />
+      {/* <ValidBouton handleClick={submitFonction} />
             </form>
           </div>
         </section>
+      </div> */}
+      {/* -------------------------------------------------------------------------- */}
+      <div className="titreCreerService ">
+        <h1>Créez votre service</h1>
+      </div>
+      <div className="container-form-ModifService">
+        <div className="container w-75 ModifService">
+          <div id="selectModif" className="form-floating mb-3 ModifService">
+            <select
+              name="Catégorie"
+              id="inputCatégorie"
+              className="form-floating mb-3 modifService"
+              ref={categorySelect}
+              //   onChange={weightFunction}
+            >
+              <option value="">Catégorie</option>
+              {categoryDisplay.map((categorie) => (
+                <option value={categorie.id}>{categorie.intitule}</option>
+              ))}
+            </select>
+            <label htmlFor="inputCatégorie"></label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="titre"
+              type="titre"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={titreInput}
+            />
+            <label htmlFor="floatingInput">Titre</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="localisation"
+              type="localisation"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={localisationInput}
+            />
+            <label htmlFor="floatingInput">Localisation</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="département"
+              type="département"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={departementInput}
+            />
+            <label htmlFor="floatingInput">Département</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="création"
+              type="création"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={creationInput}
+            />
+            <label htmlFor="floatingInput">Création: JJ-MM-AAAA</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="échéance"
+              type="échéance"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={echeanceInput}
+            />
+            <label htmlFor="floatingInput">Echéance: JJ-MM-AAAA</label>
+          </div>
+          <div className="form-floating mb-3 modifService">
+            <input
+              name="libellé"
+              type="libellé"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={libelleInput}
+            />
+            <label htmlFor="floatingInput">Libellé</label>
+          </div>
+          <div className="SubmitModifService"></div>
+          {/* <span className="messageConnexion">{message}</span> */}
+        </div>
+      </div>
+      <div className="container w-50">
+        <ValidBouton handleClick={submitFonction} />
+        {/* <span className="message">{message}</span> */}
       </div>
     </div>
   );
 };
 
+
+//
 export default CreateService;

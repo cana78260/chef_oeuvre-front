@@ -45,25 +45,30 @@ const CardFinalise = ( {service}: ServiceProp) => {
     };
   return (
     <div>
-      <div className="card mb-3" style={{ maxWidth: 540 }}>
-        <div className="row g-0">
-          <div className="col-md-4">
+      <div id="card-finalise" className="card mb-3" style={{ maxWidth: 540 }}>
+        <div id="contenu-finalise" className="row g-0">
+          <div id="container_image_finalise" className="col-md-4">
             <img
               src={`http://localhost:8080/${service.categorie.image}`}
+              id="image-finalise"
               className="img-fluid rounded-start"
               alt="..."
             />
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title">
+              <h5 id="texte-liste-finalise" className="card-title">
                 Catégorie: {service.categorie.intitule}
               </h5>
 
               <ul>
-                <li className="card-text">Titre: {service.titre}</li>
-                <li className="card-text">Pseudo: {service.createur.pseudo}</li>
-                <li className="card-text">
+                <li id="texte-liste-finalise" className="card-text">
+                  Titre: {service.titre}
+                </li>
+                <li id="texte-liste-finalise" className="card-text">
+                  Pseudo: {service.createur.pseudo}
+                </li>
+                <li id="texte-liste-finalise" className="card-text">
                   Département: {service.departement}
                 </li>
               </ul>
@@ -77,18 +82,18 @@ const CardFinalise = ( {service}: ServiceProp) => {
                   <div className="d-flex">
                     {" "}
                     <FinaliseBouton handleClick={boutonEvent} />
-                    <div className="space">
+                    {/* <div className="space"> */}
                       <button className="iconeModify" onClick={modifEvent}>
                         <FaPencilAlt className="mr-3" />
                       </button>
-                    </div>
+                    {/* </div> */}
                     <button className="iconeDelete" onClick={supprimEvent}>
                       <GoTrashcan />
                     </button>
                   </div>
-                   <a href={`mailto:${service.client.mail}`}>
-                Contacter le participant
-              </a>
+                  <a id="ancre-finalise" href={`mailto:${service.client.mail}`}>
+                    Contacter le participant
+                  </a>
                 </div>
               ) : (
                 <div className="d-flex">

@@ -1,0 +1,63 @@
+#boutonSupprim{
+    margin-left:50%;
+    margin-top: 15px;
+}
+
+.titreSupprimService{
+      background-color: #22223b;
+      text-align: center;
+   color: #f0ad4e;
+     border: 3px solid #f0ad4e;
+      border-radius: 12px;
+       width: 40%;
+      height:120px;
+      margin: auto;
+      padding-top: 2%;
+      margin-bottom: 20px;
+}
+
+.corpsSupprimService{
+      height: 300px;
+    width: 70%;
+    background-color: #22223b;
+   margin:0 auto;
+   color: #ffffff;
+   text-align: center;
+    border: 3px solid #f0ad4e;
+    border-radius: 12px;
+    font-size: 1.5em;
+    
+}
+
+.texteSupprimService{
+    margin: auto;
+    margin-top: 3%;
+   
+}
+@media screen and (max-width:406px){
+.corpsSupprimService{
+   font-size: 1.3em;
+   
+}
+
+}
+
+@media screen and (max-width:600px){
+    #boutonSupprim{
+    margin-left:32%;
+ 
+}
+}
+
+@media screen and (min-width:601px){
+    #boutonSupprim{
+    margin-left:40%;
+ 
+}
+}
+@media screen and (min-width:900px){
+    #boutonSupprim{
+    margin-left:45%;
+ 
+}
+}

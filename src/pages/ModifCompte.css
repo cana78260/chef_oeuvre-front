@@ -1,0 +1,43 @@
+.container-form-modification{
+
+    background-color: #22223b;
+    border: 3px solid #f0ad4e;
+    border-radius: 12px;
+    height:1000px;
+    width: 80%;
+    margin: 0 auto;
+ 
+}
+.container.w-75.modification{
+padding-top: 8%;
+   
+}
+
+.titreModifUtilisateur{
+       background-color: #22223b;
+   color: #f0ad4e;
+     border: 3px solid #f0ad4e;
+      border-radius: 12px;
+       width: 60%;
+      height:120px;
+      margin: auto;
+      padding-top: 4%;
+      margin-bottom: 20px;
+      margin-top: 25px;
+}
+
+@media screen and (max-width:622px){
+   .titreModifUtilisateur{
+    width:60%;
+    padding-top: 8%;
+ 
+}
+}
+
+@media screen and (min-width:1200px){
+   .titreModifUtilisateur{
+    width:60%;
+    padding-top: 2%;
+ 
+}
+}

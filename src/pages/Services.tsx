@@ -218,10 +218,10 @@ const Services = () => {
                   <form className="d-flex" role="search">
                     <input
                       className="form-control me-2"
-                      type="search"
-                      // id="search"
-                      placeholder="Search"
-                      aria-label="Search"
+                      type="Département"
+                      // id="Département"
+                      placeholder="Département"
+                      aria-label="Département"
                       value={searchValue}
                       onChange={handleSearchBar}
                     />

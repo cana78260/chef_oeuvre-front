@@ -5,7 +5,7 @@ import Bouton from "../components/Bouton";
 import CardClient from "../components/CardClient";
 import CardFinalise from "../components/CardFinalise";
 import "./Main.css";
-import  { Category, PayloadToken, User } from "./Services";
+import   { Category, PayloadToken, User } from "./Services";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context.ts/Auth-context";
 import jwt_Decode from "jwt-decode";
@@ -30,12 +30,13 @@ export interface Services {
 
 let mesServices:Services[] = [];
 let mesServicesClient: Services[] = [];
-
+let monCompteTemps: Services;
 
 const Main = () => {
 
   const [cardDisplay, setCardDisplay] = useState<Services[]>([...mesServices])
   const [cardClientDisplay, setCardClientDisplay] = useState<Services[]>([...mesServicesClient]);
+  const [compteTempsDisplay, setCompteTempsDisplay] = useState<Services>()
   const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
     useContext(AuthContext);
     const [tokenRole, setTokenRole] = useState<string>();
@@ -62,6 +63,7 @@ const [message, setMessage] = useState<string>();
       .then((res) => {
         mesServices = res.data;
         setCardDisplay(mesServices);
+        setCompteTempsDisplay(monCompteTemps);
       })
       .catch((error) => {
         console.log(error);
@@ -82,7 +84,12 @@ const [message, setMessage] = useState<string>();
       });
 
   },[])
-
+ monCompteTemps = mesServices[0];
+console.log("compteTempsDisplay::::::::::::::::", compteTempsDisplay?.createur.compte_temps);
+console.log(
+  "monCompteTemps.createur.compte_temps",
+  monCompteTemps
+);
 
 console.log(",,,,,,,,cardDisplay", cardDisplay);
 console.log(",,,,,,,,cardClientDisplay", cardClientDisplay);
@@ -125,7 +132,8 @@ const boutonDeleteEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
 
   return (
     <div>
-      <h1>Journal de Bord</h1>
+      <h1 className="titreMain">Journal de Bord</h1>
+      <p className="compteTemps">Mon compte temps: <span className="compteur">{compteTempsDisplay?.createur.compte_temps}</span></p>
       <div className="flex">
         <div className="createService">
           <h3>Créer un service</h3>
@@ -133,15 +141,18 @@ const boutonDeleteEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
         </div>
         <div className="modifcompte">
           <h3>Modifier mon compte</h3>
-          <Bouton handleClick={boutonModifEvent} />
+          <div id="boutonModif">
+            <Bouton handleClick={boutonModifEvent} />
+          </div>
         </div>
-        <div className="modifcompte">
+        <div className="supprimcompte">
           <h3>Supprimer mon compte</h3>
+
           <SubmitBouton handleClick={boutonDeleteEvent} />
         </div>
       </div>
       <div className="getServices">
-        <h3>Vos services créés</h3>
+        <h3 className="titreSection">Vos services créés</h3>
         <ul>
           {cardDisplay.map((dataService) => (
             <li>
@@ -152,10 +163,10 @@ const boutonDeleteEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
         </ul>
       </div>
       <div className="getClientServices">
-        <h3>Les services auxquels vous participez</h3>
-        <ul>
+        <h3 className="titreSection">Les services auxquels vous participez</h3>
+        <ul >
           {cardClientDisplay.map((dataService) => (
-            <li>
+            <li className="mainListe">
               {/* <Card service={card} /> */}
               <CardClient service={dataService} />
             </li>

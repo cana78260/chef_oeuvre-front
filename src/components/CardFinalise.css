@@ -1,20 +1,9 @@
-p.card-text {
-    color:blue;
+#card-finalise {
+
+    border:2px solid #22223b;
+    margin-bottom: 15px;
 }
 
-.card.mb-3 {
-
-    border-color: blue;
-}
-
-li {
-    list-style-type: none;
-}
-
-/* .mr-3{
-    margin-right: 20px;
-   
-} */
 button.iconeDelete{
 height:45px;
 width:35px;
@@ -23,7 +12,11 @@ button.iconeModify{
 height:45px;
 width:35px;
 }
-
+.d-flex{
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 15%;
+}
 .space{
     margin-left: 40px;
     margin-right: 20px;
@@ -46,3 +39,57 @@ width:35px;
      color:red;
      border: 2px solid red;
 }
+@media screen and (max-width:768px){
+
+#card-finalise {
+  height:300px;
+  width:75%;
+  margin-left: 12%;
+}
+#contenu-finalise{
+  height:300px;
+}
+
+#container_image_finalise{
+     margin-top: 1%;
+  height:40%;
+  display: flex;
+}
+
+#image-finalise{
+   
+   height:100%;
+   margin: auto;
+}
+
+#liste-finalise{
+ display: flex;
+ flex-direction: column;
+}
+
+#ancre-finalise{
+  margin-left: 25%;
+}
+#texte-liste-finalise{
+  margin: auto;
+}
+h5#texte-liste-finalise{
+  text-align: center;
+}
+#ancre-finalise{
+    text-align: center;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 15%;
+}
+
+}
+
+/* .mr-3{
+    margin-right: 20px;
+   
+} */
+

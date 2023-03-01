@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import ValidBouton from '../components/ValidBouton';
 import "./ModifCompte.css";
 import { User } from './Services';
 
@@ -186,8 +187,11 @@ useEffect(() => {
     
     return (
       <div>
-        <h3>Modif compte</h3>
-        <div className="subscribe-page  ">
+        <div className="titreModifUtilisateur">
+          <h3>Modifiez votre compte</h3>
+        </div>
+
+        {/* <div className="subscribe-page  ">
           <section className="container-form-global">
             <div className="container-form-sub ">
               <div className="suscribe ">
@@ -334,13 +338,13 @@ useEffect(() => {
                   <input
                     type="password"
                     className="htmlForm-control text-center "
-                    id="password"
-                    // value={UserProfile?.id}
+                    id="password" */}
+        {/* // value={UserProfile?.id}
                     placeholder="Nouveau mot de passe"
                     onChange={passwordFunction1}
-                    // value={mdp1Element}
-                  />
-                </div>
+                    // value={mdp1Element} */}
+        {/* /> */}
+        {/* </div>
                 <div className="mb-3">
                   <label
                     htmlFor="inputmdp2"
@@ -367,9 +371,152 @@ useEffect(() => {
               </form>
             </div>
           </section>
-        </div>
+        </div> */}
 
-        
+        {/* ---------------------------------------------------------------------- */}
+        <div className="container-form-modification">
+          <div className="container w-75 modification">
+            <div className="form-floating mb-3 modification">
+              <input
+                name="nom"
+                type="nom"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.nom}
+                onChange={nameFunction}
+                value={nameElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.nom}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="prénom"
+                type="prénom"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.prenom}
+                onChange={prenomFunction}
+                value={prenomElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.prenom}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="pseudo"
+                type="pseudo"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.pseudo}
+                onChange={pseudoFunction}
+                value={pseudoElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.pseudo}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="age"
+                type="age"
+                className="form-control"
+                placeholder={UserProfile?.age.toString()}
+                // value={ageElement}
+                onChange={ageFunction}
+                value={updateage}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.age}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="genre"
+                type="genre"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.genre}
+                onChange={genreFunction}
+                value={genreElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.genre}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="adresse"
+                type="adresse"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.adresse}
+                onChange={adressFunction}
+                value={adressElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.adresse}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="ville"
+                type="ville"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.ville}
+                onChange={villeFunction}
+                value={villeElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.ville}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="departement"
+                type="departement"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.departement}
+                onChange={departementFunction}
+                value={departementElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.departement}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="mail"
+                type="mail"
+                className="form-control"
+                id="floatingInput"
+                placeholder={UserProfile?.mail}
+                onChange={mailFunction}
+                value={mailElement}
+              />
+              <label htmlFor="floatingInput">{UserProfile?.mail}</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="password"
+                type="password"
+                className="form-control"
+                id="floatingPassword"
+                placeholder="Nouveau mot de passe"
+                onChange={passwordFunction1}
+              />
+              <label htmlFor="floatingPassword">Mot de passe</label>
+            </div>
+            <div className="form-floating mb-3 modification">
+              <input
+                name="passwordConfirm"
+                type="password"
+                className="form-control"
+                id="floatingConfirmPassword"
+                placeholder="Confirmez votre mot de passe"
+                onChange={passwordFunction2}
+              />
+              <label htmlFor="floatingConfirmPassword">
+                Confirmez mot de passe
+              </label>
+            </div>
+            <div className="SubmitModification"></div>
+            {/* <span className="messageConnexion">{message}</span> */}
+          </div>
+        </div>
+        <div className="container w-50">
+          <span className="messageDynamique">{champManquant}</span>
+          <ValidBouton handleClick={submitFonction} />
+          {/* <ValidBouton handleClick={handleLoginForm} /> */}
+        </div>
       </div>
     );
 };

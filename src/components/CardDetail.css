@@ -1,12 +1,146 @@
-p.card-text {
-    color:blue;
+
+
+
+img.img-fluid.rounded-start-detail{
+    height:auto;
+    width: auto;
+    justify-content: center;
+   
+    
 }
 
-.card.mb-3 {
+p.card-text-Detail{
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin:5px;
+}
+.card.mb-3{
+  width:540px;
+}
 
-    border-color: blue;
+div.card-body{
+    padding: 9px;
+}
+.boutonDetail{
+ margin-left: 15%;
+ margin-top: 3%;
+ 
+}
+/* @media screen and (min-width:500px){
+img.img-fluid.rounded-start-detail{
+    height:auto;
+    width: auto;
+    justify-content: center;
+   
+    
+}
+
+} */
+
+
+
+@media screen and (max-width:768px){
+
+/* img.img-fluid.rounded-start-detail{
+    height:auto;
+    width: auto;
+    justify-content: center;
+   
+    
+}
+
+p.card-text-Detail{
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin:5px;
+}
+.card.mb-3{
+  width:540px;
+}
+
+div.card-body{
+    padding: 9px;
+}
+.boutonDetail{
+ margin-left: 15%;
+ margin-top: 3%;
+ 
+} */
+
+
+}
+.card.mb-3-detail {
+
+    border:2px solid #22223b;
+    margin-bottom: 15px;
+    width:140%;
+   
+   
+}
+#containerImage{
+  height: 200px;
+  display: flex;
 }
 
 li {
     list-style-type: none;
 }
+
+p.card-text-Detail{
+    font-size: medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin:3px;
+}
+
+div.card-body{
+    padding: 3px;
+}
+
+img.img-fluid.rounded-start-detail{
+    height:90%;
+    width: auto;
+   margin: auto;
+    
+   
+    
+}
+ 
+
+
+ul{
+  padding-left: 3px;
+}
+
+.containerBoutonDetail{
+  display:flex;
+}
+
+
+.boutonDetail{
+ margin: 0 auto;
+ margin-bottom: 3px;
+}
+
+
+/* <div className="card mb-3" style={{ maxWidth: 540 }}>
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              src={`http://localhost:8080/${service.categorie.image}`}
+              className="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">
+                Catégorie: {service.categorie.intitule}
+              </h5>
+
+              <ul>
+                <li className="card-text">Titre: {service.titre}</li>
+                <li className="card-text">Pseudo: {service.createur.pseudo}</li>
+                <li className="card-text">
+                  Département: {service.departement}
+                </li>
+              </ul> */

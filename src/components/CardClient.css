@@ -1,0 +1,43 @@
+#card-client {
+
+    border:2px solid #22223b;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width:768px){
+
+#card-client {
+  height:300px;
+  width:75%;
+  margin-left: 12%;
+}
+#contenu-client{
+  height:300px;
+}
+
+#container_image_client{
+   margin-top: 1%;
+  height:40%;
+  display: flex;
+}
+
+#image-client{
+   height:100%;
+   margin: auto;
+}
+
+#liste-client{
+ display: flex;
+ flex-direction: column;
+}
+
+#ancre-client{
+  margin-left: 25%;
+}
+#texte-liste-client{
+  margin: auto;
+}
+h5#texte-liste-client{
+  text-align: center;
+}
+}

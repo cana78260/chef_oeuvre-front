@@ -96,18 +96,18 @@ const Subscribe = () => {
 
   return (
     <div>
-      <div className="subscribe-page  ">
-        <section className="container-form-global">
-          <div className="container-form-sub ">
-            <div className="suscribe ">
+      {/* <div className="subscribe-page  ">
+        <section className="container-form-global"> */}
+      {/* <div className="container-form-sub "> */}
+      {/* <div className="suscribe ">
               <h1>Inscris-toi gratuitement!</h1>
             </div>
             <form
               method="POST"
               className="suscribeForm "
               onSubmit={submitFonction}
-            >
-              <div className="mb-3">
+            > */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputNom"
                   className="htmlForm-label text-center"
@@ -119,8 +119,8 @@ const Subscribe = () => {
                   placeholder="Nom"
                   ref={nameElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputPrenom"
                   className="htmlForm-label text-center"
@@ -132,8 +132,8 @@ const Subscribe = () => {
                   placeholder="Prénom"
                   ref={prenomElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputPseudo"
                   className="htmlForm-label text-center"
@@ -145,8 +145,8 @@ const Subscribe = () => {
                   placeholder="Pseudo"
                   ref={pseudoElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputAge"
                   className="htmlForm-label text-center"
@@ -158,8 +158,8 @@ const Subscribe = () => {
                   placeholder="Age"
                   ref={ageElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputGenre"
                   className="htmlForm-label text-center"
@@ -171,8 +171,8 @@ const Subscribe = () => {
                   placeholder="Genre"
                   ref={genreElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputAdresse"
                   className="htmlForm-label text-center"
@@ -184,8 +184,8 @@ const Subscribe = () => {
                   placeholder="Adresse"
                   ref={adressElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputVille"
                   className="htmlForm-label text-center"
@@ -197,8 +197,8 @@ const Subscribe = () => {
                   placeholder="Ville"
                   ref={villeElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputdepartement"
                   className="htmlForm-label text-center"
@@ -210,9 +210,9 @@ const Subscribe = () => {
                   placeholder="département"
                   ref={departementElement}
                 />
-              </div>
+              </div> */}
 
-              <div className="mb-3">
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputMail"
                   className="htmlForm-label text-center "
@@ -224,8 +224,8 @@ const Subscribe = () => {
                   placeholder="Email"
                   ref={mailElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="inputPassword"
                   className="htmlForm-label text-center"
@@ -237,8 +237,8 @@ const Subscribe = () => {
                   placeholder="Mot de passe"
                   ref={passwordElement}
                 />
-              </div>
-              <div className="mb-3">
+              </div> */}
+      {/* <div className="mb-3">
                 <label
                   htmlFor="confirmPassword"
                   className="htmlForm-label text-center"
@@ -250,160 +250,150 @@ const Subscribe = () => {
                   placeholder="Confirmez votre mot de passe"
                   ref={confirmPasswordElement}
                 />
-              </div>
-              {/* </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="inputPassword2"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="password"
-                  className="htmlForm-control text-center"
-                  id="inputPassword2"
-                  placeholder="Confirme le mot de passe"
-                  // onChange={passwordFunction2}
-                />
-              </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="inputAge"
-                  className="htmlForm-label text-center"
-                />
-
-                <select
-                  name="age"
-                  id="inputAge"
-                  className="htmlForm-label text-center select" */}
-              {/* // onChange={ageFunction}
-                  // value={ageState}
-                > */}
-              {/* <option key={uuidv4()} value="">
-                      Sélectionne ton âge{" "}
-                    </option>
-                    {ageOptions.map((ageOption) => (
-                      <option key={uuidv4()} value={ageOption}>
-                        {ageOption} ans
-                      </option>
-                    ))} */}
-              {/* </select>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="inputWeight" className="htmlForm-label" />
-
-                <select
-                  name="weight"
-                  id="inputWeight"
-                  className="htmlForm-label select" */}
-              {/* // value={weightState}
-                  // onChange={weightFunction}
-                > */}
-              {/* <option key={uuidv4()} value="">
-                      Sélectionne ton poids
-                    </option>
-                    {poidsOptions.map((poidsOption) => (
-                      <option key={uuidv4()} value={poidsOption}>
-                        {poidsOption} kg
-                      </option>
-                    ))} */}
-              {/* </select>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="inputHeight" className="htmlForm-label" />
-
-                <select
-                  name="height"
-                  id="inputHeight"
-                  className="htmlForm-label select selectSub" */}
-              {/* // value={heightState}
-                  // onChange={heightFunction}
-                > */}
-              {/* <option key={uuidv4()} value="">
-                      Sélectionne ta taille
-                    </option>
-                    {tailleOptions.map((tailleOption) => (
-                      <option key={uuidv4()} value={tailleOption}>
-                        {tailleOption} m
-                      </option>
-                    ))} */}
-              {/* </select>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="inputGender" className="htmlForm-label" />
-
-                <select
-                  name="gender"
-                  id="inputGender"
-                  className="htmlForm-label text-center select selectSub"
-                  // value={sexState} */}
-              {/* // onChange={sexFunction}
-                > */}
-              {/* <option key={uuidv4()} value="">
-                      Sélectionne ton genre
-                    </option>
-                    <option key={uuidv4()} value="femme">
-                      Femme
-                    </option>
-                    <option key={uuidv4()} value="homme">
-                      Homme
-                    </option> */}
-              {/* </select>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="inputRation" className="htmlForm-label" />
-
-                <select
-                  name="ratio"
-                  id="inputRatio"
-                  className="htmlForm-label text-center select selectSub" */}
-              {/* // value={ratioState}
-                  // onChange={ratioFunction}
-                > */}
-              {/* <option
-                      className="text-option-activity"
-                      key={uuidv4()}
-                      value=""
-                    >
-                      Sélectionne ton activité
-                    </option>
-                    <option
-                      className="text-option-activity"
-                      key={uuidv4()}
-                      value="1.375"
-                    >
-                      faible activité physique
-                    </option>
-                    <option
-                      className="text-option-activity"
-                      key={uuidv4()}
-                      value="1.56"
-                    >
-                      entraînement 1 à 3 fois par semaine
-                    </option>
-                    <option
-                      className="text-option-activity"
-                    //   key={uuidv4()}
-                      value="1.64"
-                    >
-                      entraînement 4 à 6 fois par semaine
-                    </option>
-                    <option
-                      className="text-option-activity"
-                    //   key={uuidv4()}
-                      value="1.82"
-                    >
-                      plus de 6 entraînements par semaine
-                    </option> */}
-              {/* </select> */}
-
-              <span className="messageDynamique">{champManquant}</span>
-              <ValidBouton handleClick={submitFonction} />
-            </form>
-          </div>
-        </section>
-      </div>
+              </div> */}
+      {/* <span className="messageDynamique">{champManquant}</span>
+              <ValidBouton handleClick={submitFonction} /> */}
+      {/* </form>
+          </div> */}
+      {/* </section>
+      </div> */}
       {/* Inscription */}
       {/* <Bouton handleClick={SubscribeBoutonEvent} /> */}
+      <h1 className="title-subscribe">Inscription</h1>
+      <div className="container-form-inscription">
+        <div className="container w-75 inscription">
+          <div className="form-floating mb-3 inscription">
+            <input
+              name="nom"
+              type="nom"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={nameElement}
+            />
+            <label htmlFor="floatingInput">Nom</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="prénom"
+              type="prénom"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={prenomElement}
+            />
+            <label htmlFor="floatingInput">prénom</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="pseudo"
+              type="pseudo"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={pseudoElement}
+            />
+            <label htmlFor="floatingInput">Pseudo</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="age"
+              type="age"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={ageElement}
+            />
+            <label htmlFor="floatingInput">Age</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="genre"
+              type="genre"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={genreElement}
+            />
+            <label htmlFor="floatingInput">Genre</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="adresse"
+              type="adresse"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={adressElement}
+            />
+            <label htmlFor="floatingInput">adresse</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="ville"
+              type="ville"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={villeElement}
+            />
+            <label htmlFor="floatingInput">Ville</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="departement"
+              type="departement"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={departementElement}
+            />
+            <label htmlFor="floatingInput">Département</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="mail"
+              type="mail"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={mailElement}
+            />
+            <label htmlFor="floatingInput">adresse mail</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+              ref={passwordElement}
+            />
+            <label htmlFor="floatingPassword">Mot de passe</label>
+          </div>
+          <div className="form-floating mb-3 Inscription">
+            <input
+              name="passwordConfirm"
+              type="password"
+              className="form-control"
+              id="floatingConfirmPassword"
+              placeholder="Password"
+              ref={confirmPasswordElement}
+            />
+            <label htmlFor="floatingConfirmPassword">
+              Confirmez mot de passe
+            </label>
+          </div>
+          <div className="SubmitInscription"></div>
+          {/* <span className="messageConnexion">{message}</span> */}
+        </div>
+      </div>
+      <div className="container w-50">
+        <span className="messageDynamique">{champManquant}</span>
+        <ValidBouton handleClick={submitFonction} />
+        {/* <ValidBouton handleClick={handleLoginForm} /> */}
+      </div>
     </div>
   );
 };
