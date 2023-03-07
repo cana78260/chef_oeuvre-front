@@ -188,7 +188,7 @@ useEffect(() => {
     return (
       <div>
         <div className="titreModifUtilisateur">
-          <h3>Modifiez votre compte</h3>
+          <h1>Modifiez votre compte</h1>
         </div>
 
         {/* <div className="subscribe-page  ">

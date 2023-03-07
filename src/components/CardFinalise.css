@@ -29,15 +29,15 @@ width:35px;
  
 }
 .iconeModify{
-    background-color: transparent;
-    color: gold;
-    border:2px solid gold;
+    background-color: #ffe566;
+    color: #22223b;
+    border:2px solid #22223b;
     
 }
 .iconeDelete{
-     background-color: transparent;
-     color:red;
-     border: 2px solid red;
+     background-color: #ff6392;
+     color:#22223b;
+     border: 2px solid #22223b;
 }
 @media screen and (max-width:768px){
 

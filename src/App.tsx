@@ -24,6 +24,8 @@ import AdminMessages from "./pages/AdminMessages";
 import AdminModifyService from "./pages/AdminModifyService";
 import AdminModifyUser from "./pages/AdminModifyUser";
 import ModifCompte from "./pages/ModifCompte";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   const { savedToken } = useContext(AuthContext);
@@ -41,6 +43,7 @@ function App() {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/aboutus" element={<AboutsUs />} />
+          <Route path="/contact" element={<Contact />} />
           <Route
             path="/main"
             element={
@@ -147,7 +150,7 @@ function App() {
             path="/modifCompte/:id"
             element={
               savedToken !== null ? (
-                <ModifCompte/>
+                <ModifCompte />
               ) : (
                 <Navigate to="/connexion" />
               )
@@ -164,6 +167,7 @@ function App() {
             }
           />
         </Routes>
+       
       </BrowserRouter>
     </div>
   );

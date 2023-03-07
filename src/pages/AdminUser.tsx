@@ -69,7 +69,7 @@ const supprimEventUser = (e: React.MouseEvent<HTMLButtonElement>) => {
 
     return (
       <div>
-        <p>Liste des Utilisateurs</p>
+        <h1 className="titreAdminUtilisateur">Liste des Utilisateurs</h1>
         <ul>
           {listUserDisplayed.map((user) => (
             <li>
@@ -79,9 +79,9 @@ const supprimEventUser = (e: React.MouseEvent<HTMLButtonElement>) => {
                     <h5 className="mb-1">
                       {user.nom} {user.prenom}
                     </h5>{" "}
-                    <div className="space">
+                    <div className="spaceAdminUser">
                       <button
-                        className="iconeModify"
+                        className="iconeModifyAdmin"
                         onClick={modifEventUser}
                         value={user.id}
                       >
@@ -89,7 +89,7 @@ const supprimEventUser = (e: React.MouseEvent<HTMLButtonElement>) => {
                       </button>
                     </div>
                     <button
-                      className="iconeDelete"
+                      className="iconeDeleteAdmin"
                       onClick={supprimEventUser}
                       value={user.id}
                     >

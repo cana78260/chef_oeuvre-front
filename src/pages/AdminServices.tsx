@@ -72,7 +72,7 @@ axios
 console.log("listServiceDisplayed////", listServiceDisplayed);
     return (
       <div>
-        <h3> Admin services</h3>
+        <h1 className="titreAdminService"> Liste des services</h1>
 
         <ul>
           {listServiceDisplayed.map((serv) => (
@@ -81,7 +81,7 @@ console.log("listServiceDisplayed////", listServiceDisplayed);
                 <a href="#" className="list-group-item list-group-item-action ">
                   <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{serv.titre}</h5>{" "}
-                    <div className="space">
+                    <div className="spaceAdminService">
                       <button
                         className="iconeModify"
                         onClick={modifEvent}

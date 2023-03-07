@@ -1,0 +1,42 @@
+.container-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-p {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  justify-content: space-around;
+  width: 100%;
+
+}
+
+.footer {
+  border-top: solid 1mm#f0ad4e;
+  display: flex;
+  border-left: solid 1mm#f0ad4e;
+  border-right: solid 1mm#f0ad4e;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #22223b;
+  margin-top: 2%;
+  height: 100px;
+   position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* margin-top: 35px; */
+}
+
+.aPropos p:hover {
+  cursor: pointer;
+  color: #22223b;
+  transition: ease-in-out 0.3s;
+}
+
+
+.textFooter p {
+  margin: 0;
+}

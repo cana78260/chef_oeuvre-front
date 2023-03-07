@@ -146,7 +146,7 @@ const boutonDeleteEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
           </div>
         </div>
         <div className="supprimcompte">
-          <h3>Supprimer mon compte</h3>
+          <h3 className="titreSupprimCompte">Supprimer mon compte</h3>
 
           <SubmitBouton handleClick={boutonDeleteEvent} />
         </div>

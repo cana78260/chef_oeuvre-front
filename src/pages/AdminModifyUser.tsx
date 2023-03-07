@@ -88,7 +88,7 @@ const formData = {
 };
     return (
       <div>
-        <div className="subscribe-page  ">
+        {/* <div className="subscribe-page  ">
           <section className="container-form-global">
             <div className="container-form-sub ">
               <div className="suscribe ">
@@ -147,107 +147,110 @@ const formData = {
                     type="Age"
                     className="htmlForm-control text-center"
                     id="inputAge"
-                    placeholder="Age"
-                    // ref={ageElement}
-                    onChange={ageFunction}
-                    value={updateage}
+                    placeholder="Age" */}
+        {/* // ref={ageElement}
+                //     onChange={ageFunction}
+                //     value={updateage}
+                //   />
+                // </div> */}
+        {/* // <div className="mb-3">
+                //   <label */}
+        {/* htmlFor="inputGenre"
+                   className="htmlForm-label text-center"
                   />
-                </div>
-                <div className="mb-3">
-                  <label
-                    htmlFor="inputGenre"
-                    className="htmlForm-label text-center"
-                  />
-                  <input
-                    type="Genre"
-                    className="htmlForm-control text-center"
-                    id="inputGenre"
-                    placeholder="Genre"
-                    ref={genreElement}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label
-                    htmlFor="inputAdresse"
-                    className="htmlForm-label text-center"
-                  />
-                  <input
-                    type="Adresse"
-                    className="htmlForm-control text-center"
-                    id="inputAdresse"
-                    placeholder="Adresse"
-                    ref={adressElement}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label
-                    htmlFor="inputVille"
-                    className="htmlForm-label text-center"
-                  />
-                  <input
-                    type="Ville"
-                    className="htmlForm-control text-center"
-                    id="inputVille"
-                    placeholder="Ville"
-                    ref={villeElement}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label
-                    htmlFor="inputdepartement"
-                    className="htmlForm-label text-center"
-                  />
-                  <input
-                    type="departement"
-                    className="htmlForm-control text-center"
-                    id="inputdepartement"
-                    placeholder="département"
-                    ref={departementElement}
-                  />
-                </div>
+                 <input */}
+        {/* //     type="Genre"
+                //     className="htmlForm-control text-center"
+                //     id="inputGenre"
+                //     placeholder="Genre"
+                //     ref={genreElement}
+                //   />
+                // </div> */}
+        {/* // <div className="mb-3">
+                //   <label */}
+        {/* //     htmlFor="inputAdresse"
+                //     className="htmlForm-label text-center"
+                //   />
+                //   <input */}
+        {/* //     type="Adresse"
+                //     className="htmlForm-control text-center"
+                //     id="inputAdresse"
+                //     placeholder="Adresse"
+                //     ref={adressElement}
+                //   />
+                // </div> */}
+        {/* // <div className="mb-3">
+                //   <label */}
+        {/* //     htmlFor="inputVille"
+                //     className="htmlForm-label text-center"
+                //   />
+                //   <input */}
+        {/* //     type="Ville"
+                //     className="htmlForm-control text-center"
+                //     id="inputVille"
+                //     placeholder="Ville"
+                //     ref={villeElement}
+                //   />
+                // </div> */}
+        {/* // <div className="mb-3">
+                //   <label */}
+        {/* //     htmlFor="inputdepartement"
+                //     className="htmlForm-label text-center"
+                //   />
+                //   <input */}
+        {/* //     type="departement"
+                //     className="htmlForm-control text-center"
+                //     id="inputdepartement"
+                //     placeholder="département"
+                //     ref={departementElement}
+                //   />
+                // </div> */}
 
-                <div className="mb-3">
-                  <label
-                    htmlFor="inputMail"
-                    className="htmlForm-label text-center "
-                  />
-                  <input
-                    type="email"
-                    className="htmlForm-control text-center"
-                    id="exampleInputAge"
-                    placeholder="Email"
-                    ref={mailElement}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label
-                    htmlFor="inputTemps"
-                    className="htmlForm-label text-center"
-                  />
-                  <input
-                    type="Temps"
-                    className="htmlForm-control text-center"
-                    id="inputTemps"
-                    placeholder="Temps"
+        {/* // <div className="mb-3">
+                //   <label */}
+        {/* //     htmlFor="inputMail"
+                //     className="htmlForm-label text-center "
+                //   />
+                //   <input */}
+        {/* //     type="email"
+                //     className="htmlForm-control text-center"
+                //     id="exampleInputAge"
+                //     placeholder="Email"
+                //     ref={mailElement}
+                //   />
+                // </div> */}
+        {/* // <div className="mb-3">
+                //   <label */}
+        {/* //     htmlFor="inputTemps"
+                //     className="htmlForm-label text-center"
+                //   />
+                //   <input */}
+        {/* //     type="Temps"
+                //     className="htmlForm-control text-center"
+                //     id="inputTemps"
+                //     placeholder="Temps"
                     // ref={ageElement}
-                    onChange={compteFunction}
-                    value={compteTemps}
-                  />
-                </div>
-                <button
+        //             onChange={compteFunction}
+        //             value={compteTemps}
+        //           />
+        //         </div> */}
+        {/* <button
                   type="button"
                   className="btn btn-outline-warning"
                   onClick={submitFonction}
                 >
                   Modifier
                 </button>
-                <span className="message">{message}</span>
-              </form>
-            </div>
-          </section>
-        </div>
+        //         <span className="message">{message}</span>
+        //       </form> */}
+        {/* //     </div> */}
+        {/* //   </section> */}
+        {/* // </div> */}
         {/* ---------------------------------------------------------- */}
-
+        <img src={process.env.PUBLIC_URL + "/assets/admin.png"} alt="" />
+        <div className="AdminTitreModifUtilisateur ">
+          <h1>Modification Compte utlisateur</h1>
+        </div>
         <div className="container-form-modification">
           <div className="container w-75 modification">
             <div className="form-floating mb-3 modification">
@@ -360,14 +363,15 @@ const formData = {
             </div>
             <div className="form-floating mb-3 modification">
               <input
-                name="password"
-                type="password"
+                name="compteTemps"
+                type="text"
                 className="form-control"
-                id="floatingPassword"
+                id="floatingCompteTemps"
+                placeholder="Compte temps"
                 onChange={compteFunction}
                 value={compteTemps}
               />
-              <label htmlFor="floatingPassword">{compteTemps}</label>
+              <label htmlFor="floatingCompteTemps">Compte temps</label>
             </div>
 
             <div className="SubmitModification"></div>

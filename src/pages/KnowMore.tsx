@@ -84,7 +84,7 @@ setMessage("Désolé, ce service vous appartient")
   return (
     <div>
       <div className="titreDétailService">
-        <h3>Détails du service</h3>
+        <h1>Détails du service</h1>
       </div>
 
       <div className="container-détails">

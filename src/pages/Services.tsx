@@ -28,8 +28,9 @@ export interface Role {
 export interface Messagerie {
   id: string;
   date: string;
+  mail: string;
   message: string;
-  user: User;
+ 
 }
 
 export interface Category {
