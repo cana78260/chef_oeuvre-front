@@ -82,6 +82,7 @@ const navigate = useNavigate();
         </p>
         <p>Soyez objectif et bienveillant lorsque vous indiquerez ce temps</p>
         <p>Gardez à l'esprit que ce chiffre sera débité du compte-temps de la personne à qui ce service à profité</p>
+          <p>Gardez à l'esprit que ce chiffre sera débité du compte-temps de la personne à qui ce service a profité</p>
       </div>
       <div>
         <form className="formConnexion">
