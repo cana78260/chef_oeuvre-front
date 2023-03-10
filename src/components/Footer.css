@@ -11,6 +11,7 @@
   flex: 1 0;
   justify-content: space-around;
   width: 100%;
+  
 
 }
 
@@ -32,11 +33,20 @@
 
 .aPropos p:hover {
   cursor: pointer;
-  color: #22223b;
+  color: #ffffff;
   transition: ease-in-out 0.3s;
 }
 
 
 .textFooter p {
   margin: 0;
+}
+
+.texteLien{
+  color:#f0ad4e;
+  font-size: large;
+ 
+}
+.aPropos{
+    text-decoration-color:#ffffff;
 }

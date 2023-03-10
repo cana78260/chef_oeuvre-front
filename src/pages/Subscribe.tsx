@@ -47,7 +47,7 @@ const Subscribe = () => {
           departement: departementElement.current?.value,
           mail: mailElement.current?.value,
           mot_de_passe: passwordElement.current?.value,
-          compte_temps: 2,
+          compte_temps: 120,
         })
         .then((res) => {
           console.log("le console.log du response.data", res.data);
@@ -70,9 +70,13 @@ const Subscribe = () => {
             !mailElement ||
             passwordElement
           ) {
-            setChampManquant("Veuillez remplir tous les champs !");
-          } else if (error.response.data.message) {
             setChampManquant(error.response.data.message);
+          // } else if (error.response.data.message) {
+          //   console.log(
+          //     "error.response.data.message////////////////////",
+          //     error.response.data.message
+          //   );
+          //   setChampManquant(error.response.data.message);
           }
         });
     }
@@ -387,10 +391,10 @@ const Subscribe = () => {
           </div>
           <div className="SubmitInscription"></div>
           {/* <span className="messageConnexion">{message}</span> */}
+          <span className="messageDynamique">{champManquant}</span>
         </div>
       </div>
       <div className="container w-50">
-        <span className="messageDynamique">{champManquant}</span>
         <ValidBouton handleClick={submitFonction} />
         {/* <ValidBouton handleClick={handleLoginForm} /> */}
       </div>

@@ -13,7 +13,7 @@ let categoryGroup:Category[] = []
 
 
 const CreateService = () => {
-
+ const [champManquant, setChampManquant] = useState<string>();
     const [categoryDisplay, setCategoryDisplay ] = useState<Category[]>([])
     const categorySelect = useRef<HTMLSelectElement>(null);
     const titreInput = useRef<HTMLInputElement>(null);
@@ -97,7 +97,7 @@ categorie: categorySelect.current?.value
   return navigate("/main");
 })
 .catch((error)=>{
-
+  setChampManquant(error.response.data.message);
   console.log("error", error);
 })
   
@@ -306,6 +306,7 @@ categorie: categorySelect.current?.value
           <div className="SubmitModifService"></div>
           {/* <span className="messageConnexion">{message}</span> */}
         </div>
+        <span className="messageDynamique">{champManquant}</span>
       </div>
       <div className="container w-50">
         <ValidBouton handleClick={submitFonction} />

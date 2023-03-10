@@ -179,6 +179,7 @@ useEffect(() => {
             console.log(`les service ${params.id} a bien été sucré3333333`);
           })
           .catch((error) => {
+            setChampManquant(error.response.data.message);
             console.error("something went wrong", error);
           });
       }
@@ -511,9 +512,9 @@ useEffect(() => {
             <div className="SubmitModification"></div>
             {/* <span className="messageConnexion">{message}</span> */}
           </div>
+          <span className="messageDynamique">{champManquant}</span>
         </div>
         <div className="container w-50">
-          <span className="messageDynamique">{champManquant}</span>
           <ValidBouton handleClick={submitFonction} />
           {/* <ValidBouton handleClick={handleLoginForm} /> */}
         </div>

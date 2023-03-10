@@ -11,6 +11,7 @@ let categoryGroup: Category[] = [];
 const ModifyService = () => {
   const [categoryDisplay, setCategoryDisplay] = useState<Category[]>([]);
   const [message, setMessage] = useState<string>();
+  const [champManquant, setChampManquant] = useState<string>();
   const categorySelect = useRef<HTMLSelectElement>(null);
   const titreInput = useRef<HTMLInputElement>(null);
   const localisationInput = useRef<HTMLInputElement>(null);
@@ -93,6 +94,7 @@ const ModifyService = () => {
         console.log(`les service ${params.id} a bien été sucré3333333`);
       })
       .catch((error) => {
+         setChampManquant(error.response.data.message);
         console.log("error", error);
       });
   };
@@ -301,6 +303,7 @@ const ModifyService = () => {
           <div className="SubmitModifService"></div>
           {/* <span className="messageConnexion">{message}</span> */}
         </div>
+        <span className="messageDynamique">{champManquant}</span>
       </div>
       <div className="container w-50">
         <ValidBouton handleClick={submitFonction} />

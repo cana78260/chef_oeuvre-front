@@ -1,10 +1,11 @@
 import axios from "axios";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ValidBouton from "../components/ValidBouton";
 import "./Contact.css";
 
 const Contact = () => {
+   const [champManquant, setChampManquant] = useState<string>();
  const dateElement = useRef<HTMLInputElement>(null);
  const mailElement = useRef<HTMLInputElement>(null);
  const messageElement = useRef<HTMLInputElement>(null);
@@ -17,7 +18,7 @@ const Contact = () => {
    console.log(dateElement.current?.value);
    console.log(messageElement.current?.value);
 
-   alert("votre message a  bien été envoyé");
+ 
 
    axios
      .post(`http://localhost:8080/api/messagerie`, {
@@ -28,24 +29,26 @@ const Contact = () => {
 
      .then((response) => {
        console.log("le console.log du response.data", response.data);
+       alert("votre message a  bien été envoyé");
        navigate("/welcome");
      })
 
      .catch((error) => {
+       setChampManquant(error.response.data.message);
        console.error("something went wrong", error);
      });
  };
 
  return (
    <div>
-     <p>Messagerie</p>
-     <div className="container-form-ModifService">
-       <div className="container w-75 ModifService">
-         <div className="form-floating mb-3 messagerie">
+     <h1 className="title-contact">Contact</h1>
+     <div className="container-form-contact">
+       <div className="container w-75 contact">
+         <div className="form-floating mb-3 contact">
            <input
              name="date"
              type="text"
-             className="form-control messagerie"
+             className="form-control contact"
              id="floatingInput"
              placeholder="name@example.com"
              ref={dateElement}
@@ -77,6 +80,7 @@ const Contact = () => {
          <div className="SubmitMessage"></div>
          {/* <span className="messageConnexion">{message}</span> */}
        </div>
+       <span className="messageDynamique">{champManquant}</span>
      </div>
      <div className="container w-50">
        <ValidBouton handleClick={handleSubmitForm} />

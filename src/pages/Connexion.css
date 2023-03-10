@@ -38,3 +38,14 @@ padding-top: 100px;
    
 }
 
+.linkSub{
+  text-align: center;
+    text-decoration-color:#ffffff;
+
+}
+
+.linkSub p:hover {
+  cursor: pointer;
+  color: #ffffff;
+  transition: ease-in-out 0.3s;
+}

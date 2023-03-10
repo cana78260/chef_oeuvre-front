@@ -15,14 +15,14 @@ const Footer = () => {
           <div className=" footer-p">
             <Link className="aPropos" to="/aboutus">
               {" "}
-              <p>À propos</p>
+              <p className="texteLien">À propos</p>
             </Link>
 
             {/* <Link className="aPropos" to="/ajout">
             <p>Soumets tes aliments / activités </p>
           </Link> */}
             <Link className="aPropos" to="/contact">
-              <p>Contact</p>
+              <p className="texteLien">Contact</p>
             </Link>
           </div>
         </div>

@@ -66,26 +66,37 @@ const navigate = useNavigate();
         <h3>Finalisez votre service</h3>
       </div>
       <div className="disclaimerFinalise">
-        <p>Bienvenue sur la page de finalisation de votre service</p>
-        <p>Vous allez conclure votre offre de service </p>
+        <p>
+          <span className="spanFinalise">
+            Bienvenue sur la page de finalisation de votre service
+          </span>
+        </p>
+        <p>Vous allez conclure votre offre de service. </p>
         <p>
           Veuillez renseigner le temps que vous avez consacré à la réalisation
-          de votre service
+          de votre service.
         </p>
         <p>
           Le temps que vous allez renseigné doit être exprimé en{" "}
-          <span>Minutes</span>
+          <span className="spanFinalise">Minutes.</span>
         </p>
         <p>
-          Exemple: Si vous avez consacré 1 heure, indiquez <span>60</span> dans
-          le champ
+          <span className="spanFinalise">Exemple:</span> Si vous avez consacré{" "}
+          <span className="spanFinalise">1 heure</span>, indiquez{" "}
+          <span className="spanFinalise">60</span> dans le champ
         </p>
-        <p>Soyez objectif et bienveillant lorsque vous indiquerez ce temps</p>
-        <p>Gardez à l'esprit que ce chiffre sera débité du compte-temps de la personne à qui ce service à profité</p>
-          <p>Gardez à l'esprit que ce chiffre sera débité du compte-temps de la personne à qui ce service a profité</p>
+        <p>
+          Soyez <span className="spanFinalise">objectif</span> et{" "}
+          <span className="spanFinalise">bienveillant</span> lorsque vous
+          indiquerez ce temps.
+        </p>
+        <p>
+          Gardez à l'esprit que ce chiffre sera débité du compte-temps de la
+          personne à qui ce service à profité.
+        </p>
       </div>
-      <div>
-        <form className="formConnexion">
+      {/* <div> */}
+        {/* <form className="formConnexion">
           <div className="mb-3 mail-container">
             <label htmlFor="inputMail" className="htmlForm-label" />
             <input
@@ -97,17 +108,37 @@ const navigate = useNavigate();
             />
           </div>
           <SubmitBouton handleClick={boutonEvent} />
-          <span className="message">{message}</span>
+          <span className="message">{message}</span> */}
           {/* <button type="submit" className="btn inscription">
               {" "}
               Se connecter
             </button> */}
-        </form>
+        {/* </form> */}
         {/* <Link className="linkSub" to="/mdpoubli">
                 <p className="lienInscription"> Mot de passe oublié ?</p>
               </Link> */}
-      </div>
+      {/* </div> */}
       {/* <span className="message">{message}</span> */}
+      {/* --------------------------------------------------------------------- */}
+      <div className="container-form-finalise">
+        <div className="container w-75 finalise">
+          <div className="form-floating mb-3 finalise">
+            <input
+              name="nom"
+              type="nom"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              ref={FinaliseServ}
+            />
+            <label htmlFor="floatingInput">Minutes</label>
+          </div>
+        </div>
+      </div>
+      <div className="submitFinalise">
+        <SubmitBouton handleClick={boutonEvent} />
+        {/* <span className="message">{message}</span> */}
+      </div>
     </div>
   );
 };

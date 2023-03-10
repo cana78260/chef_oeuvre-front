@@ -68,7 +68,9 @@ const [message, setMessage] = useState<string>();
       .catch((error) => {
         console.log(error);
       });
-
+      console.log("carddisplay00000000000", cardDisplay);
+console.log("mon compte temps11111111111111", monCompteTemps);
+console.log("compte temps display2222222222", compteTempsDisplay);
       axios
        .get("http://localhost:8080/api/services/byClient", {
         headers: {

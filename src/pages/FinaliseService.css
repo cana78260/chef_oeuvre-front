@@ -1,0 +1,92 @@
+.titreFinaliseService{
+      background-color: #22223b;
+      text-align: center;
+   color: #f0ad4e;
+     border: 3px solid #f0ad4e;
+      border-radius: 12px;
+       width: 40%;
+      height:120px;
+      margin: auto;
+      padding-top: 2%;
+      margin-bottom: 20px;
+}
+
+.disclaimerFinalise{
+     height: 450px;
+    width: 70%;
+    background-color: #22223b;
+   margin:0 auto;
+   color: #ffffff;
+   text-align: center;
+    border: 3px solid #f0ad4e;
+    border-radius: 12px;
+    font-size: 1.5em;
+}
+
+.spanFinalise{
+    font-style: italic;
+    color: #f0ad4e;
+}
+
+.container-form-finalise{
+
+    background-color: #22223b;
+    border: 3px solid #f0ad4e;
+    border-radius: 12px;
+    height:120px;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 20px;
+    margin-top: 20px;
+ 
+}
+
+.submitFinalise{
+    margin: 0 auto;
+    width: 50px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width:600px){
+.disclaimerFinalise{
+
+    width:95%;
+     font-size: 1.2em;
+     height: 600px;
+}
+.submitFinalise{
+    margin-left: 30%;
+    width: 50px;
+    margin-top: 10px;
+}
+
+}
+
+@media screen and (min-width:601px){
+.disclaimerFinalise{
+
+    width:95%;
+     font-size: 1.4em;
+     height: 600px;
+}
+
+}
+@media screen and (min-width:701px){
+.disclaimerFinalise{
+
+    width:95%;
+     font-size: 1.5em;
+     height: 550px;
+}
+
+}
+
+@media screen and (min-width:901px){
+.disclaimerFinalise{
+
+    width:95%;
+     font-size: 1.5em;
+     height: 450px;
+}
+
+}

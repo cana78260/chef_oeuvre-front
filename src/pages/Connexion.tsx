@@ -4,6 +4,7 @@ import React, { FormEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context.ts/Auth-context';
 import ValidBouton from '../components/ValidBouton';
+import { Link } from 'react-router-dom';
 
 const Connexion = () => {
   const { onAuthChange } = useContext(AuthContext);
@@ -142,6 +143,9 @@ const Connexion = () => {
           <div className="SubmitConnexion"></div>
           <span className="messageConnexion">{message}</span>
         </div>
+        <Link className="linkSub" to="/forgottenPassword">
+          <p className="lienInscription"> Mot de passe oublié ?</p>
+        </Link>
       </div>
       <div className="container w-50">
         <ValidBouton handleClick={handleLoginForm} />

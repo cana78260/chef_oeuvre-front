@@ -26,6 +26,8 @@ import AdminModifyUser from "./pages/AdminModifyUser";
 import ModifCompte from "./pages/ModifCompte";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import ForgottenPassword from "./pages/ForgottenPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   const { savedToken } = useContext(AuthContext);
@@ -44,6 +46,8 @@ function App() {
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/aboutus" element={<AboutsUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/forgottenPassword" element={<ForgottenPassword />} />
+          <Route path="resetpassword" element={<ResetPassword />} />
           <Route
             path="/main"
             element={
