@@ -14,10 +14,24 @@ const Subscribe = () => {
   const adressElement = useRef<HTMLInputElement>(null);
   const villeElement = useRef<HTMLInputElement>(null);
   const departementElement = useRef<HTMLInputElement>(null);
-  const mailElement = useRef<HTMLInputElement>(null);
+  // const mailElement = useRef<HTMLInputElement>(null);
+    const [mailState, setMailState] = useState<string>();
   const passwordElement = useRef<HTMLInputElement>(null);
   const confirmPasswordElement = useRef<HTMLInputElement>(null);
    const navigate = useNavigate();
+
+const mailFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setMailState(
+    e.currentTarget.value
+      .toLocaleLowerCase()
+      .trim()
+      .split(" ")
+      .join("")
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "")
+    // normalize et replace pour les accent et autres le reste pour les espaces
+  );
+};
 
   const submitFonction = (e: FormEvent) => {
     e.preventDefault();
@@ -45,7 +59,7 @@ const Subscribe = () => {
           adresse: adressElement.current?.value,
           ville: villeElement.current?.value,
           departement: departementElement.current?.value,
-          mail: mailElement.current?.value,
+          mail: mailState,
           mot_de_passe: passwordElement.current?.value,
           compte_temps: 120,
         })
@@ -67,7 +81,7 @@ const Subscribe = () => {
             !adressElement ||
             !villeElement ||
             !departementElement ||
-            !mailElement ||
+            !mailState ||
             passwordElement
           ) {
             setChampManquant(error.response.data.message);
@@ -84,7 +98,7 @@ const Subscribe = () => {
   useEffect(() => {
     console.log("lastName!", nameElement);
     console.log("firstName", prenomElement);
-    console.log("mail", mailElement);
+    console.log("mail", mailState);
     console.log("age dans useEffect", ageElement);
     console.log("password", passwordElement);
     console.log("password2", confirmPasswordElement);
@@ -361,7 +375,7 @@ const Subscribe = () => {
               className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
-              ref={mailElement}
+              onChange={mailFunction}
             />
             <label htmlFor="floatingInput">adresse mail</label>
           </div>

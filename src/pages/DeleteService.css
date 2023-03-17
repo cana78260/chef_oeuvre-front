@@ -3,6 +3,13 @@
     margin-top: 15px;
 }
 
+
+#deleteService{
+text-align: center;
+    font-size: 1.4em;
+     color: #f0ad4e;
+}
+
 .titreSupprimService{
       background-color: #22223b;
       text-align: center;
@@ -39,6 +46,11 @@
    font-size: 1.3em;
    
 }
+#deleteService{
+text-align: center;
+    font-size: 1.1em;
+     color: #f0ad4e;
+}
 
 }
 
@@ -47,6 +59,12 @@
     margin-left:32%;
  
 }
+#deleteService{
+text-align: center;
+    font-size: 1.2em;
+     color: #f0ad4e;
+}
+
 }
 
 @media screen and (min-width:601px){

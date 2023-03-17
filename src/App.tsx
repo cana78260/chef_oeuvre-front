@@ -19,7 +19,6 @@ import { UserContext } from "./Context.ts/User-context";
 import ModifyService from "./pages/ModifyService";
 import DeleteService from "./pages/DeleteService";
 import AdminServices from "./pages/AdminServices";
-import AdminCategories from "./pages/AdminCategories";
 import AdminMessages from "./pages/AdminMessages";
 import AdminModifyService from "./pages/AdminModifyService";
 import AdminModifyUser from "./pages/AdminModifyUser";
@@ -106,16 +105,6 @@ function App() {
             element={
               savedToken !== null ? (
                 <AdminModifyService />
-              ) : (
-                <Navigate to="/connexion" />
-              )
-            }
-          />
-          <Route
-            path="adminCategories"
-            element={
-              savedToken !== null ? (
-                <AdminCategories />
               ) : (
                 <Navigate to="/connexion" />
               )

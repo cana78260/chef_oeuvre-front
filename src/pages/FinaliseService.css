@@ -41,6 +41,12 @@
  
 }
 
+#finaliseService{
+text-align: center;
+    font-size: 1.4em;
+     color: #f0ad4e;
+}
+
 .submitFinalise{
     margin: 0 auto;
     width: 50px;
@@ -59,7 +65,11 @@
     width: 50px;
     margin-top: 10px;
 }
-
+#finaliseService{
+text-align: center;
+    font-size: 1.1em;
+     color: #f0ad4e;
+}
 }
 
 @media screen and (min-width:601px){
@@ -69,7 +79,11 @@
      font-size: 1.4em;
      height: 600px;
 }
-
+#finaliseService{
+text-align: center;
+    font-size: 1.2em;
+     color: #f0ad4e;
+}
 }
 @media screen and (min-width:701px){
 .disclaimerFinalise{

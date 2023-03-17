@@ -5,7 +5,16 @@ import "./Welcome.css";
 const Welcome = () => {
     return (
       <div>
-        <p>Accueil</p>
+        <h1 className="welcomeTitle">Bienvenue sur Fil en Troc</h1>
+
+        <div className="imageContainer">
+          <img
+            className="welcomeImage"
+            src="/assets/welcom2.png"
+            alt=""
+            style={{ width: "100%" }}
+          />
+        </div>
         <div className="footer-app">
           <Footer />
         </div>

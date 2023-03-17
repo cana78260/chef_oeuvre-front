@@ -14,13 +14,13 @@
 .container.w-50{
     margin-right:80px;
 }
-.messageConnexion{
+/* .messageConnexion{
     color:#22223b;
     font-family: cursive;
     text-align: center;
     margin-left: 80px;
  
-}
+} */
 
 .container-form-connexion{
 
@@ -48,4 +48,11 @@ padding-top: 100px;
   cursor: pointer;
   color: #ffffff;
   transition: ease-in-out 0.3s;
+}
+
+#connexionReussie{
+  text-align: center;
+    font-size: 1.2em;
+     color: #f0ad4e;
+     
 }

@@ -59,7 +59,7 @@ console.log("listServiceDisplayed////", listMessageDisplayed);
     
     return (
       <div>
-        <h3>Admin messages</h3>
+    
         <h1 className="titreAdminService"> Liste des messages</h1>
 
         <ul>

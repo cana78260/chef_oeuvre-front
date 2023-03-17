@@ -46,13 +46,14 @@ const supprimFunction = (e: React.MouseEvent<HTMLButtonElement>) => {
             Vous êtes sur le point de supprimer votre service
           </p>
           <p className="texteSupprimService">
-            Cette suppression sera définitive, veuillez cliquer sur le bouton "Valider" pour confirmer
+            Cette suppression sera définitive, veuillez cliquer sur le bouton
+            "Valider" pour confirmer
           </p>
+          <span id="deleteService">{message}</span>
         </div>
         <div id="boutonSupprim">
           {" "}
           <ValidBouton handleClick={supprimFunction} />
-          <span className="message">{message}</span>
         </div>
       </div>
     );

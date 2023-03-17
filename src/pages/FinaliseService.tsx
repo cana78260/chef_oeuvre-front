@@ -94,9 +94,10 @@ const navigate = useNavigate();
           Gardez à l'esprit que ce chiffre sera débité du compte-temps de la
           personne à qui ce service à profité.
         </p>
+        <p id="finaliseService">{message}</p>
       </div>
       {/* <div> */}
-        {/* <form className="formConnexion">
+      {/* <form className="formConnexion">
           <div className="mb-3 mail-container">
             <label htmlFor="inputMail" className="htmlForm-label" />
             <input
@@ -109,12 +110,12 @@ const navigate = useNavigate();
           </div>
           <SubmitBouton handleClick={boutonEvent} />
           <span className="message">{message}</span> */}
-          {/* <button type="submit" className="btn inscription">
+      {/* <button type="submit" className="btn inscription">
               {" "}
               Se connecter
             </button> */}
-        {/* </form> */}
-        {/* <Link className="linkSub" to="/mdpoubli">
+      {/* </form> */}
+      {/* <Link className="linkSub" to="/mdpoubli">
                 <p className="lienInscription"> Mot de passe oublié ?</p>
               </Link> */}
       {/* </div> */}

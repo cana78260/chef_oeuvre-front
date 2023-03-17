@@ -14,6 +14,7 @@ let categoryGroup:Category[] = []
 
 const CreateService = () => {
  const [champManquant, setChampManquant] = useState<string>();
+ const [message, setMessage] = useState<string>();
     const [categoryDisplay, setCategoryDisplay ] = useState<Category[]>([])
     const categorySelect = useRef<HTMLSelectElement>(null);
     const titreInput = useRef<HTMLInputElement>(null);
@@ -93,8 +94,10 @@ categorie: categorySelect.current?.value
     authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
   }
 }).then((res) =>{
-  console.log("res.data=====", res.data);
-  return navigate("/main");
+setTimeout(() => {
+  navigate("/main");
+}, 2000);
+setMessage(" service créé ");
 })
 .catch((error)=>{
   setChampManquant(error.response.data.message);
@@ -308,9 +311,9 @@ categorie: categorySelect.current?.value
         </div>
         <span className="messageDynamique">{champManquant}</span>
       </div>
+      <p id="createService">{message}</p>
       <div className="container w-50">
         <ValidBouton handleClick={submitFonction} />
-        {/* <span className="message">{message}</span> */}
       </div>
     </div>
   );

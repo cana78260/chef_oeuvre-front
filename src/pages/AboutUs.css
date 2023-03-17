@@ -1,0 +1,55 @@
+.aboutTitle{
+    text-align: center;
+}
+
+.container_pageAbout{
+    display: flex;
+   /* flex-wrap: wrap; */
+
+}
+
+.disclaimer_pageAbout{
+    text-align: center;
+    justify-content: space-between;
+    margin:3%;
+    background-color: #22223b;
+   color: #ffffff;
+   text-align: center;
+    border: 3px solid #f0ad4e;
+    border-radius: 12px;
+    font-size: 1.2em;
+    padding-top: 20px;
+}
+
+.disclaimer_span_about{
+      font-style: italic;
+    color: #f0ad4e;
+}
+
+
+
+@media screen and (max-width:900px){
+
+  .container_pageAbout{
+    display: flex;
+    flex-direction: column;
+   /* flex-wrap: wrap; */
+
+}
+}
+@media screen and (max-width:500px){
+
+    .disclaimer_pageAbout{
+
+        margin-left: 5%;
+         font-size: 1em;
+    }
+}
+
+/* @media screen and (max-width:400px){
+
+    .disclaimer_pageAbout{
+
+        margin-left: 5%;
+    } */
+/* } */

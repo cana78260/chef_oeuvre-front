@@ -146,6 +146,7 @@ const Connexion = () => {
         <Link className="linkSub" to="/forgottenPassword">
           <p className="lienInscription"> Mot de passe oublié ?</p>
         </Link>
+        <p id="connexionReussie">{message}</p>
       </div>
       <div className="container w-50">
         <ValidBouton handleClick={handleLoginForm} />

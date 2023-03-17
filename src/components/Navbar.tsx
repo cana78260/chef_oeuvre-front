@@ -59,9 +59,9 @@ const Navbar = () => {
             <NavLink to="welcome" className="navbar-brand p-0 m-0">
               <div className="bg-logo">
                 <div className="container-logo">
-                  <img
+                  <img className="logo"
                     src={
-                      process.env.PUBLIC_URL + `/assets/logov2_detoure150.png`
+                      process.env.PUBLIC_URL + `/assets/LogoFinal.png`
                     }
                     alt=""
                   />
@@ -145,68 +145,58 @@ const Navbar = () => {
                     Messagerie
                   </NavLink>
                 </li> */}
-                    {tokenRole === "admin" &&
-                      tokenFunction(savedToken) && (
-                        <li className="nav-item dropdown">
-                          <NavLink
-                            to="/"
-                            className="nav-link buttonStyle  dropdown-toggle"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                            onClick={tokenVerify}
+                    {tokenRole === "admin" && tokenFunction(savedToken) && (
+                      <li className="nav-item dropdown">
+                        <NavLink
+                          to="/"
+                          className="nav-link buttonStyle  dropdown-toggle"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          onClick={tokenVerify}
+                        >
+                          <strong
+                          // data-bs-toggle="collapse"
+                          // data-bs-target="#navbarNav"
                           >
-                            <strong
-                            // data-bs-toggle="collapse"
-                            // data-bs-target="#navbarNav"
-                            >
-                              {" "}
-                              Admin{" "}
-                            </strong>
-                          </NavLink>
-                          <ul className="dropdown-menu">
-                            <li>
-                              {/* <a className="dropdown-item" href="#">
+                            {" "}
+                            Admin{" "}
+                          </strong>
+                        </NavLink>
+                        <ul className="dropdown-menu">
+                          <li>
+                            {/* <a className="dropdown-item" href="#">
                             Action
                           </a> */}
-                              <NavLink
-                                to="/adminServices"
-                                className="nav-link buttonStyle "
-                                onClick={tokenVerify}
-                              >
-                                <strong> Gestion des services </strong>
-                              </NavLink>
-                            </li>
-                            <li>
-                              <NavLink
-                                to="/adminUsers"
-                                className="nav-link buttonStyle "
-                                onClick={tokenVerify}
-                              >
-                                <strong> Gestion des utilisateurs</strong>
-                              </NavLink>
-                            </li>
-                            <li>
-                              <NavLink
-                                to="/adminMessages"
-                                className="nav-link buttonStyle "
-                                onClick={tokenVerify}
-                              >
-                                <strong> Gestion des messages </strong>
-                              </NavLink>
-                            </li>
-                            <li>
-                              <NavLink
-                                to="/adminCategories"
-                                className="nav-link buttonStyle "
-                                onClick={tokenVerify}
-                              >
-                                <strong> Gestion des catégories </strong>
-                              </NavLink>
-                            </li>
-                          </ul>
-                        </li>
-                      )}
+                            <NavLink
+                              to="/adminServices"
+                              className="nav-link buttonStyle "
+                              onClick={tokenVerify}
+                            >
+                              <strong> Gestion des services </strong>
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink
+                              to="/adminUsers"
+                              className="nav-link buttonStyle "
+                              onClick={tokenVerify}
+                            >
+                              <strong> Gestion des utilisateurs</strong>
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink
+                              to="/adminMessages"
+                              className="nav-link buttonStyle "
+                              onClick={tokenVerify}
+                            >
+                              <strong> Gestion des messages </strong>
+                            </NavLink>
+                          </li>
+                        </ul>
+                      </li>
+                    )}
                     <li className="li-deco">
                       <input
                         type="button"

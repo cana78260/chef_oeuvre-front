@@ -12,6 +12,12 @@ form.createServiceForm {
    
 }
 
+#createService{
+text-align: center;
+    font-size: 1.4em;
+     color: #22223b;
+}
+
 .titreCreerService{
        background-color: #22223b;
    color: #f0ad4e;
@@ -29,5 +35,10 @@ form.createServiceForm {
     width:80%;
     padding-top: 5%;
  
+}
+#createService{
+text-align: center;
+    font-size: 1.1em;
+     color: #22223b;
 }
 }

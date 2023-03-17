@@ -167,8 +167,8 @@ const boutonDeleteEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
       <div className="getClientServices">
         <h3 className="titreSection">Les services auxquels vous participez</h3>
         <ul >
-          {cardClientDisplay.map((dataService) => (
-            <li className="mainListe">
+          {cardClientDisplay.map((dataService,i) => (
+            <li className="mainListe" key={i}>
               {/* <Card service={card} /> */}
               <CardClient service={dataService} />
             </li>
