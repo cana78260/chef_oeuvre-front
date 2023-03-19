@@ -276,7 +276,7 @@ const ModifyService = () => {
               placeholder="name@example.com"
               ref={creationInput}
             />
-            <label htmlFor="floatingInput">Création: JJ-MM-AAAA</label>
+            <label htmlFor="floatingInput">Date de début: JJ-MM-AAAA</label>
           </div>
           <div className="form-floating mb-3 modifService">
             <input
@@ -287,7 +287,7 @@ const ModifyService = () => {
               placeholder="name@example.com"
               ref={echeanceInput}
             />
-            <label htmlFor="floatingInput">Echéance: JJ-MM-AAAA</label>
+            <label htmlFor="floatingInput">Date de fin: JJ-MM-AAAA</label>
           </div>
           <div className="form-floating mb-3 modifService">
             <input
