@@ -1,19 +1,14 @@
-import React from 'react';
-import { Services } from '../pages/Services';
+import React from "react";
+import { Services } from "../pages/Services";
 import "./CardClient.css";
 
-
-
 export interface ServiceProp {
-service: Services;
-
-  // categorie: Category;
+  service: Services;
 }
 
 const CardClient = ({ service }: ServiceProp) => {
   return (
     <div>
-      {/* {service.client !== null ? ( */}
       <div id="card-client" className="card mb-3">
         <div id="contenu-client" className="row g-0">
           <div id="container_image_client" className="col-md-4">
@@ -44,18 +39,10 @@ const CardClient = ({ service }: ServiceProp) => {
               <a id="ancre-client" href={`mailto:${service.createur.mail}`}>
                 Contacter l'auteur
               </a>
-              {/* <p className="card-text">
-                  <small className="text-muted">
-                    Pseudo: {service.service.createur.pseudo}
-                  </small>
-                </p> */}
             </div>
           </div>
         </div>
       </div>
-      {/* ) : (
-        <div></div>
-      )} */}
     </div>
   );
 };

@@ -1,14 +1,8 @@
 import axios from "axios";
 import "./Services.css";
-import React, {
-  ChangeEvent,
-  FormEvent,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import _ from "lodash";
-import Card, { CardDetail } from "../components/CardDetail";
+import { CardDetail } from "../components/CardDetail";
 
 //  interface pour l'objet du token payload decodé
 export interface PayloadToken {
@@ -30,7 +24,6 @@ export interface Messagerie {
   date: string;
   mail: string;
   message: string;
- 
 }
 
 export interface Category {
@@ -80,13 +73,7 @@ const Services = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [listCategories, setListCategories] = useState<Category[]>([]);
   const [checkCategories, setCheckCategories] = useState<string[]>([]);
-  // const [searchBarInput, setSearchBarInput] = useState<string>();
 
-  // const delayedSearch = useRef(
-  //   _.debounce((value: string) => {
-  //     globalSearch({ search: value});
-  //   }, 500)
-  // );
   const handleSearchBar = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;
     setSearchValue(value);
@@ -179,7 +166,6 @@ const Services = () => {
   return (
     <div>
       <div className="d-flex align-items-stretch">
-        {/* <SideBar listElementCategories={listCategories} /> */}
         <div className="custom-side-bar flex-shrink-0 bg-warning border-end">
           <div className="p-3 border-bottom">
             <span className="fs-5 fw-semibold">Filtres</span>
@@ -209,9 +195,6 @@ const Services = () => {
           className="container-fluid custom-main"
           style={{ display: "flex", flexWrap: "wrap" }}
         >
-          {/* {servicesDisplayed.map()} */}
-          {/* <p>Journal de bord</p> */}
-
           <div>
             <div>
               <nav className="navbar bg-body-tertiary">
@@ -220,14 +203,11 @@ const Services = () => {
                     <input
                       className="form-control me-2"
                       type="Département"
-                      // id="Département"
                       placeholder="Département"
                       aria-label="Département"
                       value={searchValue}
                       onChange={handleSearchBar}
                     />
-
-                    {/* <label className="form-control me-2" htmlFor="search"/> */}
                   </form>
                 </div>
               </nav>
@@ -235,14 +215,6 @@ const Services = () => {
             <ul>
               {listServiceDisplayed.map((dataService) => (
                 <>
-                  {/* <li>{service.categorie.intitule}</li>
-                  <li>{service.creation}</li>
-                  <li>
-                    <img
-                      src={`http://localhost:8080/${service.categorie.image}`}
-                    />
-                    {service.categorie.image}
-                  </li> */}
                   <li>
                     <CardDetail service={dataService} />
                   </li>

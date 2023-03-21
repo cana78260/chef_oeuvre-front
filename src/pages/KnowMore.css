@@ -41,6 +41,11 @@ p {
     color: #ffffff;
     font-size: large;
 }
+.messageDetail{
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2em;
+}
 
 #boutonSavoirPlus{
     margin-top: 15px;

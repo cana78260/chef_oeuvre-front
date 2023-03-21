@@ -1,5 +1,5 @@
 import React from 'react';
-import { Category, Services } from '../pages/Services'
+import { Category} from '../pages/Services'
 import _ from "lodash"
 
 

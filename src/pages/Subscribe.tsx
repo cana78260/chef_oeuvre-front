@@ -5,7 +5,7 @@ import ValidBouton from "../components/ValidBouton";
 import "./Subscribe.css";
 
 const Subscribe = () => {
-    const [champManquant, setChampManquant] = useState<string>();
+  const [champManquant, setChampManquant] = useState<string>();
   const nameElement = useRef<HTMLInputElement>(null);
   const prenomElement = useRef<HTMLInputElement>(null);
   const pseudoElement = useRef<HTMLInputElement>(null);
@@ -14,39 +14,30 @@ const Subscribe = () => {
   const adressElement = useRef<HTMLInputElement>(null);
   const villeElement = useRef<HTMLInputElement>(null);
   const departementElement = useRef<HTMLInputElement>(null);
-  // const mailElement = useRef<HTMLInputElement>(null);
-    const [mailState, setMailState] = useState<string>();
+  const [mailState, setMailState] = useState<string>();
   const passwordElement = useRef<HTMLInputElement>(null);
   const confirmPasswordElement = useRef<HTMLInputElement>(null);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const mailFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
-  setMailState(
-    e.currentTarget.value
-      .toLocaleLowerCase()
-      .trim()
-      .split(" ")
-      .join("")
-      .normalize("NFD")
-      .replace(/\p{Diacritic}/gu, "")
-    // normalize et replace pour les accent et autres le reste pour les espaces
-  );
-};
+  const mailFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMailState(
+      e.currentTarget.value
+        .toLocaleLowerCase()
+        .trim()
+        .split(" ")
+        .join("")
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+      // normalize et replace pour les accent et autres le reste pour les espaces
+    );
+  };
 
   const submitFonction = (e: FormEvent) => {
     e.preventDefault();
-    console.log("bouton cliqué");
-    // console.log(nameElement.current?.value);
-    // console.log(prenomElement.current?.value);
-    // console.log(pseudoElement.current?.value);
-    // console.log(ageElement.current?.value);
-    // console.log(adressElement.current?.value);
-    // console.log(villeElement.current?.value);
-    // console.log(departementElement.current?.value);
-    // console.log(mailElement.current?.value);
-    // console.log(passwordElement.current?.value);
-    //  console.log(confirmPasswordElement.current?.value);
-    if (passwordElement.current?.value !== confirmPasswordElement.current?.value) {
+
+    if (
+      passwordElement.current?.value !== confirmPasswordElement.current?.value
+    ) {
       alert("Les champs mot de passe et confirmation ne correspondent pas.");
     } else {
       axios
@@ -65,10 +56,8 @@ const mailFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
         })
         .then((res) => {
           console.log("le console.log du response.data", res.data);
-          //   let inscription = true;
-          //   if (inscription) {
+
           return navigate("/connexion");
-          //   }
         })
         .catch((error) => {
           console.error("something went wrong", error);
@@ -85,12 +74,6 @@ const mailFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
             passwordElement
           ) {
             setChampManquant(error.response.data.message);
-          // } else if (error.response.data.message) {
-          //   console.log(
-          //     "error.response.data.message////////////////////",
-          //     error.response.data.message
-          //   );
-          //   setChampManquant(error.response.data.message);
           }
         });
     }
@@ -108,175 +91,8 @@ const mailFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("ratio", pseudoElement);
   });
 
-//   const SubscribeBoutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
-//     console.log("page subscribe");
-//   };
-
   return (
     <div>
-      {/* <div className="subscribe-page  ">
-        <section className="container-form-global"> */}
-      {/* <div className="container-form-sub "> */}
-      {/* <div className="suscribe ">
-              <h1>Inscris-toi gratuitement!</h1>
-            </div>
-            <form
-              method="POST"
-              className="suscribeForm "
-              onSubmit={submitFonction}
-            > */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputNom"
-                  className="htmlForm-label text-center"
-                />{" "}
-                <input
-                  type="nom"
-                  className="htmlForm-control text-center "
-                  id="inputNom"
-                  placeholder="Nom"
-                  ref={nameElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputPrenom"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="prenom"
-                  className="htmlForm-control text-center"
-                  id="inputPrenom"
-                  placeholder="Prénom"
-                  ref={prenomElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputPseudo"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="pseudo"
-                  className="htmlForm-control text-center"
-                  id="inputPseudo"
-                  placeholder="Pseudo"
-                  ref={pseudoElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputAge"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="Age"
-                  className="htmlForm-control text-center"
-                  id="inputAge"
-                  placeholder="Age"
-                  ref={ageElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputGenre"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="Genre"
-                  className="htmlForm-control text-center"
-                  id="inputGenre"
-                  placeholder="Genre"
-                  ref={genreElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputAdresse"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="Adresse"
-                  className="htmlForm-control text-center"
-                  id="inputAdresse"
-                  placeholder="Adresse"
-                  ref={adressElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputVille"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="Ville"
-                  className="htmlForm-control text-center"
-                  id="inputVille"
-                  placeholder="Ville"
-                  ref={villeElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputdepartement"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="departement"
-                  className="htmlForm-control text-center"
-                  id="inputdepartement"
-                  placeholder="département"
-                  ref={departementElement}
-                />
-              </div> */}
-
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputMail"
-                  className="htmlForm-label text-center "
-                />
-                <input
-                  type="email"
-                  className="htmlForm-control text-center"
-                  id="exampleInputAge"
-                  placeholder="Email"
-                  ref={mailElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="inputPassword"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="password"
-                  className="htmlForm-control text-center"
-                  id="inputPassword"
-                  placeholder="Mot de passe"
-                  ref={passwordElement}
-                />
-              </div> */}
-      {/* <div className="mb-3">
-                <label
-                  htmlFor="confirmPassword"
-                  className="htmlForm-label text-center"
-                />
-                <input
-                  type="password"
-                  className="htmlForm-control text-center"
-                  id="confirmPassword"
-                  placeholder="Confirmez votre mot de passe"
-                  ref={confirmPasswordElement}
-                />
-              </div> */}
-      {/* <span className="messageDynamique">{champManquant}</span>
-              <ValidBouton handleClick={submitFonction} /> */}
-      {/* </form>
-          </div> */}
-      {/* </section>
-      </div> */}
-      {/* Inscription */}
-      {/* <Bouton handleClick={SubscribeBoutonEvent} /> */}
       <h1 className="title-subscribe">Inscription</h1>
       <div className="container-form-inscription">
         <div className="container w-75 inscription">
@@ -404,13 +220,11 @@ const mailFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
             </label>
           </div>
           <div className="SubmitInscription"></div>
-          {/* <span className="messageConnexion">{message}</span> */}
           <span className="messageDynamique">{champManquant}</span>
         </div>
       </div>
       <div className="container w-50">
         <ValidBouton handleClick={submitFonction} />
-        {/* <ValidBouton handleClick={handleLoginForm} /> */}
       </div>
     </div>
   );

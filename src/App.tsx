@@ -7,7 +7,6 @@ import Main from "./pages/Main";
 import Connexion from "./pages/Connexion";
 import AdminUser from "./pages/AdminUser";
 import Page404 from "./pages/Page404";
-import Messagerie from "./pages/Messagerie";
 import Services from "./pages/Services";
 import Navbar from "./components/Navbar";
 import KnowMore from "./pages/KnowMore";
@@ -24,7 +23,6 @@ import AdminModifyService from "./pages/AdminModifyService";
 import AdminModifyUser from "./pages/AdminModifyUser";
 import ModifCompte from "./pages/ModifCompte";
 import Contact from "./pages/Contact";
-import Footer from "./components/Footer";
 import ForgottenPassword from "./pages/ForgottenPassword";
 import ResetPassword from "./pages/ResetPassword";
 
@@ -121,7 +119,6 @@ function App() {
             }
           />
           <Route path="/*" element={<Page404 />} />
-          {/* <Route path="/messagerie" element={<Messagerie />} /> */}
           <Route path="/services" element={<Services />} />
           <Route
             path="/services/:id"
@@ -160,7 +157,6 @@ function App() {
             }
           />
         </Routes>
-       
       </BrowserRouter>
     </div>
   );

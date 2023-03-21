@@ -16,8 +16,6 @@ const Navbar = () => {
   console.log("validTimeToken TTOKEN", validTimeToken);
 
   useEffect(() => {
-    //onAuthChange(savedToken);
-    //tokenFunction(savedToken);
     console.log("voici le resultat pour savedToken", savedToken);
     if (savedToken) {
       const decoded: PayloadToken = jwt_decode(savedToken);
@@ -59,15 +57,11 @@ const Navbar = () => {
             <NavLink to="welcome" className="navbar-brand p-0 m-0">
               <div className="bg-logo">
                 <div className="container-logo">
-                  <img className="logo"
-                    src={
-                      process.env.PUBLIC_URL + `/assets/LogoFinal.png`
-                    }
+                  <img
+                    className="logo"
+                    src={process.env.PUBLIC_URL + `/assets/LogoFinal.png`}
                     alt=""
                   />
-                  {/* <a className="navbar-brand" href="#">
-                  Fil en Troc
-                </a> */}
                 </div>
               </div>
             </NavLink>
@@ -88,17 +82,11 @@ const Navbar = () => {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  {/* <a className='nav-link active' aria-current='page' href='#'>
-                Home
-              </a> */}
                   <NavLink to="/welcome" end className="nav-link">
                     Accueil
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
                   <NavLink to="services" className="nav-link">
                     Services
                   </NavLink>
@@ -106,18 +94,12 @@ const Navbar = () => {
                 {(!savedToken && (
                   <>
                     <li className="nav-item">
-                      {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
                       <NavLink to="subscribe" className="nav-link">
                         Inscription
                       </NavLink>
                     </li>
 
                     <li className="nav-item">
-                      {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
                       <NavLink to="connexion" className="nav-link">
                         Connexion
                       </NavLink>
@@ -126,9 +108,6 @@ const Navbar = () => {
                 )) || (
                   <>
                     <li className="nav-item">
-                      {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
                       <NavLink
                         to="main"
                         className="nav-link"
@@ -137,14 +116,7 @@ const Navbar = () => {
                         Journal de bord
                       </NavLink>
                     </li>
-                    {/* <li className="nav-item"> */}
-                    {/* <a className='nav-link' href='#'>
-                Details
-              </a> */}
-                    {/* <NavLink to="messagerie" className="nav-link">
-                    Messagerie
-                  </NavLink>
-                </li> */}
+
                     {tokenRole === "admin" && tokenFunction(savedToken) && (
                       <li className="nav-item dropdown">
                         <NavLink
@@ -155,19 +127,10 @@ const Navbar = () => {
                           aria-expanded="false"
                           onClick={tokenVerify}
                         >
-                          <strong
-                          // data-bs-toggle="collapse"
-                          // data-bs-target="#navbarNav"
-                          >
-                            {" "}
-                            Admin{" "}
-                          </strong>
+                          <strong> Admin </strong>
                         </NavLink>
                         <ul className="dropdown-menu">
                           <li>
-                            {/* <a className="dropdown-item" href="#">
-                            Action
-                          </a> */}
                             <NavLink
                               to="/adminServices"
                               className="nav-link buttonStyle "

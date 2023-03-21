@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { FaPencilAlt } from 'react-icons/fa';
 import { GoTrashcan } from 'react-icons/go';
 import { useNavigate, useParams } from 'react-router-dom';
-import { servicesVersion } from 'typescript';
 import "./Admin.css";
 import { Services } from './Services';
 
@@ -61,7 +60,7 @@ axios
    
     setMessage("Le service à été définitivement supprimé ");
 
-    // alert("les deux comptes temps ont été mis à jour, merci pour tout! ")
+
     console.log(`les service ${params.id} a bien été sucré3333333`);
     window.location.reload();
   })

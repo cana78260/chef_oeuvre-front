@@ -9,69 +9,40 @@ import jwt_decode from "jwt-decode";
 
 export interface ServiceProp {
   service: Services;
-
-  // categorie: Category;
 }
 
 export const CardDetail = ({ service }: ServiceProp) => {
-
   console.log("SEEEEERVICE", service);
 
   const navigate = useNavigate();
   const [tokenRole, setTokenRole] = useState<string>();
-const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
-  useContext(AuthContext);
+  const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
+    useContext(AuthContext);
   const [SelectedCard, setSelectedCard] = useState<Services>();
- 
-   useEffect(() => {
 
+  useEffect(() => {
+    onAuthChange(savedToken);
+    tokenFunction(savedToken);
+    console.log("voici le resultat pour savedToken", savedToken);
+    if (savedToken) {
+      const decoded: PayloadToken = jwt_decode(savedToken);
+      console.log("le payload", decoded.role);
+      setTokenRole(decoded.role);
+      console.log("etat d'expiration token dans la navbar", validTimeToken);
+    }
+    if (validTimeToken === "token expiré") {
+      window.location.reload();
+    }
+  }, []);
 
-     onAuthChange(savedToken);
-     tokenFunction(savedToken);
-     console.log("voici le resultat pour savedToken", savedToken);
-     if (savedToken) {
-       const decoded: PayloadToken = jwt_decode(savedToken);
-       console.log("le payload", decoded.role);
-       setTokenRole(decoded.role);
-       console.log("etat d'expiration token dans la navbar", validTimeToken);
-     }
-     if (validTimeToken === "token expiré") {
-       window.location.reload();
-     }
-// if (SelectedCard) {
-//       axios
-//         .get(`http://localhost:8080/api/services/${SelectedCard.id}`)
-//         .then((res) => setSelectedCard(res.data))
-//         .catch((error) => console.log(error));
-//     }
-
-
-   }, []);
-
-   console.log("SelectedCard---------", SelectedCard);
+  console.log("SelectedCard---------", SelectedCard);
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
     navigate(`/services/${service.id}`);
 
     const test = service;
     console.log("????????????test", test);
-
-    // setSelectedCard(test);
-    //
-
-    //
   };
-
-  // useEffect(() => {
-  //   if (SelectedCard) {
-  //     axios
-  //       .get(`http://localhost:8080/api/services/${SelectedCard.id}`)
-  //       .then((res) => setSelectedCard(res.data))
-  //       .catch((error) => console.log(error));
-  //   }
-  // }, [setSelectedCard]);
-
-  // console.log("//////////////SelectedCard", SelectedCard);
 
   return (
     <div>
@@ -99,11 +70,6 @@ const { savedToken, validTimeToken, tokenFunction, onAuthChange } =
                   Département: {service.departement}
                 </p>
 
-                {/* <p className="card-text">
-                  <small className="text-muted">
-                    Pseudo: {service.service.createur.pseudo}
-                  </small>
-                </p> */}
                 {savedToken ? (
                   <div className="containerBoutonDetail">
                     <div className="boutonDetail">

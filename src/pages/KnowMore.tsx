@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import "./KnowMore.css";
-import { PayloadToken, Services, User } from "./Services";
+import { PayloadToken, Services} from "./Services";
 import {  useNavigate, useParams } from "react-router-dom";
 import ValidBouton from "../components/ValidBouton";
 import {AuthContext} from "../Context.ts/Auth-context";
@@ -50,7 +50,6 @@ console.log("SavedToken après use effect",tokenId);
 console.log("DisplayCard", displayCard)
 
   const boutonEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
-      console.log("bouton cliqué");
     if(tokenId && displayCard){
 if(tokenId===displayCard.createur.id){
 setMessage("Désolé, ce service vous appartient")
@@ -60,7 +59,6 @@ setMessage("Désolé, ce service vous appartient")
         `http://localhost:8080/api/services/valid/${params.id}`,{
               client:tokenId
         },
-      
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accesstoken")}`,
@@ -68,7 +66,6 @@ setMessage("Désolé, ce service vous appartient")
         }
       )
       .then((res) => {
-        console.log("---------res", res);
         navigate("/services")
       })
       .catch((error) => {
@@ -124,12 +121,12 @@ setMessage("Désolé, ce service vous appartient")
             <span className="corpsSavoirPlus"> {displayCard?.libelle}</span>
           </p>
           <p className="selectionService">Je sélectionne ce service</p>
+          <span className="messageDetail">{message}</span>
         </div>
       </div>
       <div id="boutonSavoirPlus">
         {" "}
         <ValidBouton handleClick={boutonEvent} />
-        <span className="message">{message}</span>
       </div>
     </div>
   );
